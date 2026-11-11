@@ -9,29 +9,35 @@
 
 <style>
 
+
 :root {
-  --bg:#101216;
-  --surface:#1b1f27;
-  --ink:#f3f4f6;
-  --muted:#a1a1aa;
-  --line:#343a46;
-  --red:#dc2626;
-  --green:#16a34a;
-  --amber:#f59e0b;
-  --blue:#3b82f6;
-  --shadow:0 12px 30px rgba(0,0,0,.22);
+  --bg:#090b10;
+  --surface:#151923;
+  --ink:#f8fafc;
+  --muted:#9ca3af;
+  --line:rgba(255,255,255,.09);
+  --red:#ed252d;
+  --green:#16c784;
+  --amber:#f5b82e;
+  --blue:#429cff;
+  --shadow:0 18px 45px rgba(0,0,0,.35);
 }
 
 *{box-sizing:border-box}
 
+
 body {
   margin:0;
+  min-height:100vh;
   background:
-    radial-gradient(ellipse at top left,#29202a 0%,transparent 38%),
-    linear-gradient(135deg,#101216,#171a21);
+    radial-gradient(ellipse at 10% 0%,rgba(237,37,45,.13),transparent 32%),
+    radial-gradient(ellipse at 90% 20%,rgba(245,184,46,.05),transparent 28%),
+    linear-gradient(135deg,#090b10,#111722 55%,#090b10);
   color:var(--ink);
-  font:15px system-ui,sans-serif;
+  font:15px "Segoe UI",system-ui,sans-serif;
+  letter-spacing:.1px;
 }
+
 
 button,input,select{font:inherit}
 
@@ -49,12 +55,14 @@ button {
 button:hover{filter:brightness(1.12);transform:translateY(-1px)}
 button:disabled{opacity:.5;cursor:not-allowed}
 
+
 header {
-  background:linear-gradient(115deg,#090b0f,#202631);
+  position:relative;
+  background:linear-gradient(110deg,#090b10,#1a202b 65%,#25151a);
   color:white;
-  padding:22px;
-  border-bottom:4px solid var(--red);
-  box-shadow:0 8px 25px rgba(0,0,0,.3);
+  padding:23px 25px;
+  border-bottom:1px solid rgba(237,37,45,.55);
+  box-shadow:0 10px 35px rgba(0,0,0,.4);
 }
 
 .header-inner {
@@ -67,18 +75,21 @@ header {
 }
 
 .brand {
-  font-size:24px;
+  font-size:27px;
   font-weight:950;
-  letter-spacing:1px;
+  letter-spacing:1.5px;
+  text-shadow:0 3px 15px rgba(237,37,45,.15);
 }
 
 .garage{color:#facc15}
 .pro{color:#4ade80}
 
 .header-sub {
-  color:#cbd5e1;
+  color:#aeb7c5;
   font-size:12px;
-  margin-top:4px;
+  margin-top:5px;
+  letter-spacing:1px;
+  text-transform:uppercase;
 }
 
 main {
@@ -585,6 +596,553 @@ html {
   scroll-margin-top:20px;
 }
 
+
+/* ===== PREMIUM GARAGE PRO ===== */
+
+.panel,
+.stat,
+.calendar-card,
+.item {
+  background:linear-gradient(145deg,#1b202b,#121720);
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:18px;
+  box-shadow:0 16px 38px rgba(0,0,0,.28);
+}
+
+.panel {
+  padding:24px;
+  margin-bottom:22px;
+}
+
+.login-panel {
+  border-top:3px solid var(--red);
+  box-shadow:0 20px 60px rgba(0,0,0,.45);
+}
+
+.login-panel h2 {
+  font-size:24px;
+  font-weight:850;
+}
+
+.sidebar {
+  background:linear-gradient(160deg,#1b202b,#0d1118);
+  border:1px solid rgba(255,255,255,.08);
+  border-left:3px solid var(--red);
+  border-radius:18px;
+  box-shadow:0 15px 40px rgba(0,0,0,.3);
+}
+
+.sidebar a {
+  border:1px solid transparent;
+  transition:all .25s ease;
+}
+
+.sidebar a:hover,
+.sidebar-link.active {
+  background:linear-gradient(100deg,rgba(237,37,45,.2),rgba(237,37,45,.04));
+  border-left:3px solid var(--red);
+  color:white;
+  transform:translateX(3px);
+}
+
+.welcome {
+  background:
+    radial-gradient(ellipse at 90% 50%,rgba(237,37,45,.12),transparent 40%),
+    linear-gradient(120deg,#1b202b,#121720);
+}
+
+.welcome h1 {
+  font-size:27px;
+  font-weight:900;
+  letter-spacing:-.5px;
+}
+
+.stat {
+  transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease;
+}
+
+.stat:hover {
+  transform:translateY(-5px);
+  border-color:rgba(237,37,45,.45);
+  box-shadow:0 18px 35px rgba(0,0,0,.4);
+}
+
+.stat strong {
+  font-size:34px;
+  font-weight:900;
+  letter-spacing:-1px;
+}
+
+button {
+  border-radius:11px;
+  box-shadow:0 5px 15px rgba(0,0,0,.18);
+}
+
+button:hover {
+  box-shadow:0 8px 20px rgba(237,37,45,.18);
+}
+
+.secondary {
+  background:#303846;
+  color:#f8fafc;
+}
+
+.green {
+  background:linear-gradient(135deg,#16a34a,#087b40);
+}
+
+.calendar-card {
+  background:linear-gradient(145deg,#1a202a,#11161f);
+}
+
+.weekday {
+  background:#252d39;
+}
+
+.day {
+  background:#171d27;
+  transition:background .2s ease;
+}
+
+.day:hover {
+  background:#303b4b;
+}
+
+.day.selected {
+  background:rgba(237,37,45,.16);
+  outline:2px solid var(--red);
+}
+
+.item {
+  transition:transform .25s ease,border-color .25s ease;
+}
+
+.item:hover {
+  transform:translateY(-4px);
+  border-color:rgba(237,37,45,.5);
+}
+
+.item p {
+  line-height:1.6;
+}
+
+.status {
+  border:1px solid rgba(255,255,255,.08);
+  padding:6px 11px;
+}
+
+.actions button {
+  min-height:39px;
+}
+
+input,select {
+  border:1px solid #3a4352;
+  background:#10151e;
+  border-radius:11px;
+}
+
+input:focus,select:focus {
+  border-color:var(--red);
+  box-shadow:0 0 0 3px rgba(237,37,45,.16);
+}
+
+#message {
+  padding:8px 12px;
+  border-radius:8px;
+  color:#e5e7eb;
+}
+
+@media(max-width:600px) {
+  .brand {font-size:22px}
+  .welcome h1 {font-size:23px}
+  .panel {padding:16px}
+  .stat strong {font-size:27px}
+}
+
+
+/* ===== BARRE SUPERIEURE PREMIUM ===== */
+
+.topbar-premium {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:20px;
+  flex-wrap:wrap;
+  padding:19px 22px;
+  margin-bottom:20px;
+  background:linear-gradient(110deg,#1c222d,#111720);
+  border:1px solid rgba(255,255,255,.09);
+  border-top:2px solid #ed252d;
+  border-radius:16px;
+  box-shadow:0 12px 30px rgba(0,0,0,.25);
+}
+
+.topbar-date {
+  display:flex;
+  flex-direction:column;
+  gap:5px;
+}
+
+.topbar-label {
+  color:#ed454c;
+  font-size:10px;
+  font-weight:900;
+  letter-spacing:1.5px;
+}
+
+.topbar-date strong {
+  color:#fff;
+  font-size:16px;
+  text-transform:capitalize;
+}
+
+.topbar-date small {
+  color:#a1aab8;
+  font-size:13px;
+  font-weight:700;
+}
+
+.topbar-right {
+  display:flex;
+  align-items:center;
+  gap:15px;
+  flex-wrap:wrap;
+}
+
+.admin-online {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  color:#d1d5db;
+  font-size:12px;
+  font-weight:700;
+}
+
+.online-dot {
+  width:9px;
+  height:9px;
+  background:#22c55e;
+  border-radius:50%;
+  box-shadow:0 0 12px rgba(34,197,94,.7);
+}
+
+.notification-admin {
+  display:flex;
+  align-items:center;
+  gap:7px;
+  padding:9px 12px;
+  background:#29202a;
+  border:1px solid rgba(237,37,45,.25);
+  border-radius:10px;
+  color:white;
+}
+
+.notification-admin strong {
+  color:#ff646b;
+  font-size:15px;
+}
+
+.notification-admin small {
+  color:#cbd5e1;
+  font-size:11px;
+}
+
+.refresh-premium {
+  background:linear-gradient(135deg,#ed252d,#a9141b);
+  padding:10px 15px;
+  border-radius:10px;
+  font-size:12px;
+}
+
+@media(max-width:600px) {
+  .topbar-premium {
+    padding:15px;
+    gap:15px;
+  }
+
+  .topbar-right {
+    width:100%;
+    gap:9px;
+  }
+
+  .admin-online {
+    width:100%;
+  }
+
+  .notification-admin {
+    flex:1;
+  }
+}
+/* NAVIGATION ENTRE LES RUBRIQUES */
+
+.admin-view {
+  display: none;
+  animation: fadeAdmin .3s ease;
+}
+
+.admin-view.active {
+  display: block;
+}
+
+@keyframes fadeAdmin {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* AFFICHAGE DES RUBRIQUES */
+.admin-view {
+  display: none;
+  animation: fadeAdmin .3s ease;
+}
+
+.admin-view.active {
+  display: block;
+}
+
+@keyframes fadeAdmin {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* ===== TABLEAU DE BORD PREMIUM ===== */
+
+.overview-stats {
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:14px;
+  margin:20px 0;
+}
+
+.overview-stat {
+  padding:19px;
+  background:linear-gradient(145deg,#202735,#121720);
+  border:1px solid rgba(255,255,255,.09);
+  border-radius:16px;
+  border-left:4px solid var(--red);
+  box-shadow:var(--shadow);
+}
+
+.overview-stat small,
+.overview-stat span {
+  display:block;
+  color:var(--muted);
+}
+
+.overview-stat strong {
+  display:block;
+  color:white;
+  font-size:30px;
+  margin:9px 0 5px;
+}
+
+.pending-overview {border-left-color:#f59e0b}
+.confirmed-overview {border-left-color:#22c55e}
+.refused-overview {border-left-color:#a1a1aa}
+
+.overview-chart-panel {
+  margin-bottom:20px;
+}
+
+.overview-heading p,
+.overview-list-panel > p {
+  color:var(--muted);
+  font-size:13px;
+  margin:5px 0 0;
+}
+
+.reservations-chart {
+  height:190px;
+  display:grid;
+  grid-template-columns:repeat(7,minmax(0,1fr));
+  gap:12px;
+  align-items:end;
+  padding:20px 5px 0;
+}
+
+.chart-day {
+  height:100%;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:flex-end;
+  gap:8px;
+  min-width:0;
+}
+
+.chart-bar-area {
+  height:140px;
+  width:100%;
+  display:flex;
+  align-items:flex-end;
+  justify-content:center;
+  border-bottom:1px solid #3a4352;
+}
+
+.chart-bar {
+  width:min(42px,75%);
+  min-height:4px;
+  border-radius:7px 7px 0 0;
+  background:linear-gradient(180deg,#ff6269,#b91520);
+  transition:height .3s ease;
+}
+
+.chart-day strong {
+  color:white;
+  font-size:12px;
+}
+
+.chart-day small {
+  color:var(--muted);
+  font-size:11px;
+}
+
+.overview-columns {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:16px;
+}
+
+.overview-list-panel h2 {
+  margin-bottom:5px;
+}
+
+.overview-list {
+  display:grid;
+  gap:10px;
+  margin-top:17px;
+}
+
+.overview-row {
+  padding:12px;
+  background:#151b25;
+  border:1px solid var(--line);
+  border-radius:11px;
+}
+
+.overview-row strong {
+  display:block;
+  color:white;
+  margin-bottom:5px;
+}
+
+.overview-row small {
+  display:block;
+  color:var(--muted);
+  line-height:1.6;
+}
+
+.overview-row .status {
+  margin-top:8px;
+}
+
+@media(max-width:950px) {
+  .overview-stats {
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+}
+
+@media(max-width:650px) {
+  .overview-columns {
+    grid-template-columns:1fr;
+  }
+
+  .overview-stats {
+    gap:9px;
+  }
+
+  .overview-stat {
+    padding:13px;
+  }
+
+  .overview-stat strong {
+    font-size:25px;
+  }
+
+  .reservations-chart {
+    gap:5px;
+  }
+}
+
+/* ===== COULEURS DES INDICATEURS DU CALENDRIER ===== */
+
+.calendar-day {
+  background: #171d27;
+  color: #f8fafc;
+  border: 1px solid rgba(255,255,255,.09);
+  border-radius: 0;
+  min-height: 85px;
+  padding: 8px 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 7px;
+  text-align: center;
+}
+
+.calendar-day:hover {
+  background: #303b4b;
+  transform: none;
+}
+
+.calendar-day.today {
+  border: 1px solid #ed252d;
+}
+
+.calendar-day.selected {
+  background: rgba(237,37,45,.16);
+  outline: 2px solid #ed252d;
+  outline-offset: -2px;
+}
+
+.calendar-indicators {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+}
+
+.calendar-indicators .dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  margin: 0;
+}
+
+.pending-dot {
+  background: #f59e0b !important;
+}
+
+.confirmed-dot {
+  background: #22c55e !important;
+}
+
+.refused-dot {
+  background: #ed252d !important;
+}
+
+.calendar-day small {
+  color: #cbd5e1;
+  font-size: 10px;
+}
+
+.empty-day {
+  background: #111720;
+  border: 1px solid rgba(255,255,255,.05);
+  min-height: 85px;
+}
+
 </style>
 </head>
 
@@ -635,20 +1193,16 @@ html {
 
       <div class="sidebar-title">MENU PRINCIPAL</div>
 
-      <a href="#overview" class="sidebar-link active">
-        🏠 Tableau de bord
-      </a>
+      <a href="#overviewView" class="sidebar-link active">Tableau de bord</a>
+      
 
-      <a href="#statistics" class="sidebar-link">
-        📊 Statistiques
-      </a>
+     
+<a href="#statisticsView" class="sidebar-link">Statistiques</a>
+        
+      
+<a href="#calendarView" class="sidebar-link">Calendrier</a>
 
-      <a href="#calendarSection" class="sidebar-link">
-        📅 Calendrier
-      </a>
-
-      <a href="#reservationsSection" class="sidebar-link">
-        🔧 Réservations
+      <a href="#reservationsView" class="sidebar-link">Réservations
         <span id="pendingMenuCount">0</span>
       </a>
 
@@ -666,110 +1220,188 @@ html {
     <!-- CONTENU PRINCIPAL -->
     <div class="dashboard-content">
 
-      <div class="panel welcome" id="overview">
-        <div>
-          <h1>Tableau de bord</h1>
-          <p>Bienvenue dans votre espace SPEED GARAGE PRO.</p>
-        </div>
 
-        <button id="logout" class="secondary" type="button">
-          Déconnexion
-        </button>
+<!-- BARRE SUPERIEURE PREMIUM -->
+<div class="topbar-premium">
+
+  <div class="topbar-date">
+    <span class="topbar-label">ESPACE ADMINISTRATEUR</span>
+    <strong id="liveDate">Chargement...</strong>
+    <small id="liveTime">--:--:--</small>
+  </div>
+
+  <div class="topbar-right">
+
+    <div class="admin-online">
+      <span class="online-dot"></span>
+      Administrateur connecté
+    </div>
+
+    <div class="notification-admin">
+      <span>🔔</span>
+      <strong id="topbarPendingCount">0</strong>
+      <small>En attente</small>
+    </div>
+
+    <button
+      type="button"
+      id="refreshDashboard"
+      class="refresh-premium">
+      ↻ Actualiser
+    </button>
+  </div>
+
+</div>
+
+     
+<!-- TABLEAU DE BORD -->
+<div id="overviewView" class="admin-view active">
+
+  <div class="panel welcome" id="overview">
+    <div>
+      <h1>Tableau de bord</h1>
+      <p>Bienvenue dans votre espace SPEED GARAGE PRO.</p>
+    </div>
+
+    <button id="logout" class="secondary" type="button">
+      Déconnexion
+    </button>
+  </div>
+
+  <!-- INDICATEURS RAPIDES -->
+  <div class="overview-stats">
+
+    <div class="overview-stat">
+      <small>Réservations totales</small>
+      <strong id="overviewTotal">0</strong>
+      <span>Depuis le début</span>
+    </div>
+
+    <div class="overview-stat pending-overview">
+      <small>En attente</small>
+      <strong id="overviewPending">0</strong>
+      <span>À traiter</span>
+    </div>
+
+    <div class="overview-stat confirmed-overview">
+      <small>Confirmées</small>
+      <strong id="overviewConfirmed">0</strong>
+      <span>Rendez-vous acceptés</span>
+    </div>
+
+    <div class="overview-stat refused-overview">
+      <small>Refusées</small>
+      <strong id="overviewRefused">0</strong>
+      <span>Demandes refusées</span>
+    </div>
+
+  </div>
+
+  <!-- GRAPHIQUE -->
+  <div class="panel overview-chart-panel">
+    <div class="overview-heading">
+      <div>
+        <h2>Activité des réservations</h2>
+        <p>Nombre de réservations sur les 7 derniers jours.</p>
       </div>
+    </div>
 
-      <!-- STATISTIQUES -->
-      <div class="stats" id="statistics">
+    <div id="reservationsChart" class="reservations-chart"></div>
+  </div>
 
-        <div class="stat red">
-          <small>Total réservations</small>
-          <strong id="totalReservations">0</strong>
-        </div>
+  <!-- DERNIERES RESERVATIONS ET PROCHAINS RENDEZ-VOUS -->
+  <div class="overview-columns">
 
-        <div class="stat orange">
-          <small>En attente</small>
-          <strong id="pendingReservations">0</strong>
-        </div>
+    <div class="panel overview-list-panel">
+      <h2>Dernières réservations</h2>
+      <p>Les cinq demandes les plus récentes.</p>
+      <div id="recentReservations" class="overview-list"></div>
+    </div>
 
-        <div class="stat green-stat">
-          <small>Confirmées</small>
-          <strong id="confirmedReservations">0</strong>
-        </div>
+    <div class="panel overview-list-panel">
+      <h2>Prochains rendez-vous</h2>
+      <p>Les cinq prochains rendez-vous non refusés.</p>
+      <div id="upcomingReservations" class="overview-list"></div>
+    </div>
 
-        <div class="stat dark-stat">
-          <small>Refusées</small>
-          <strong id="refusedReservations">0</strong>
-        </div>
+  </div>
 
-        <div class="stat blue">
-          <small>Créneaux occupés</small>
-          <strong id="occupiedSlots">0</strong>
-        </div>
+</div>
 
-      </div>
+<!-- STATISTIQUES -->
+<div id="statisticsView" class="admin-view">
+  <div class="stats" id="statistics">
 
-      <!-- CALENDRIER -->
-      <div class="section-heading">
-        <div>
-          <h2 style="margin:0">Calendrier des rendez-vous</h2>
-          <small style="color:#a1a1aa">
-            Cliquez sur une date pour afficher les rendez-vous.
-          </small>
-        </div>
-      </div>
+    <div class="stat red">
+      <small>Total réservations</small>
+      <strong id="totalReservations">0</strong>
+    </div>
 
-      <section class="calendar-card" id="calendarSection">
+    <div class="stat orange">
+      <small>En attente</small>
+      <strong id="pendingReservations">0</strong>
+    </div>
 
-        <div class="calendar-toolbar">
-          <div id="monthTitle" class="month-title"></div>
+    <div class="stat green-stat">
+      <small>Confirmées</small>
+      <strong id="confirmedReservations">0</strong>
+    </div>
 
-          <div class="calendar-controls">
-            <button id="prevMonth" class="secondary" type="button">‹</button>
-            <button id="todayBtn" class="dark" type="button">Aujourd'hui</button>
-            <button id="nextMonth" class="secondary" type="button">›</button>
-          </div>
-        </div>
+    <div class="stat dark-stat">
+      <small>Refusées</small>
+      <strong id="refusedReservations">0</strong>
+    </div>
 
-        <div id="calendar" class="calendar-grid"></div>
+    <div class="stat blue">
+      <small>Créneaux occupés</small>
+      <strong id="occupiedSlots">0</strong>
+    </div>
 
-        <div class="legend">
-          <span><i class="dot" style="background:#d97706"></i>En attente</span>
-          <span><i class="dot" style="background:#16a34a"></i>Confirmé</span>
-          <span><i class="dot" style="background:#dc2626"></i>Refusé</span>
-        </div>
+  </div>
+</div>
 
-        <div id="dayDetail" class="day-detail"></div>
-
-      </section>
-
-      <!-- RESERVATIONS -->
-      <div class="section-heading" id="reservationsSection">
-        <div>
-          <h2 style="margin:0">Demandes de rendez-vous</h2>
-          <small style="color:#a1a1aa">
-            Confirmez, refusez ou contactez vos clients.
-          </small>
-        </div>
-
-        <select id="filterStatus">
-          <option value="tous">Toutes les réservations</option>
-          <option value="en_attente">En attente</option>
-          <option value="confirme">Confirmées</option>
-          <option value="refuse">Refusées</option>
-        </select>
-      </div>
-
-      <div id="cards" class="cards"></div>
-
+<!-- CALENDRIER -->
+<div id="calendarView" class="admin-view">
+  <div class="section-heading">
+    <div>
+      <h2 style="margin:0">Calendrier des rendez-vous</h2>
+      <small style="color:#a1a1aa">
+        Cliquez sur une date pour afficher les rendez-vous.
+      </small>
     </div>
   </div>
 
-</section>
-  </section>
+  <section class="calendar-card" id="calendarSection">
 
-  <div class="section-heading">
+    <div class="calendar-toolbar">
+      <div id="monthTitle" class="month-title"></div>
+
+      <div class="calendar-controls">
+        <button id="prevMonth" class="secondary" type="button">‹</button>
+        <button id="todayBtn" class="dark" type="button">Aujourd'hui</button>
+        <button id="nextMonth" class="secondary" type="button">›</button>
+      </div>
+    </div>
+
+    <div id="calendar" class="calendar-grid"></div>
+
+    <div class="legend">
+      <span><i class="dot" style="background:#d97706"></i>En attente</span>
+      <span><i class="dot" style="background:#16a34a"></i>Confirmé</span>
+      <span><i class="dot" style="background:#dc2626"></i>Refusé</span>
+    </div>
+
+    <div id="dayDetail" class="day-detail"></div>
+
+  </section>
+</div>
+
+<!-- RESERVATIONS -->
+<div id="reservationsView" class="admin-view">
+  <div class="section-heading" id="reservationsSection">
     <div>
       <h2 style="margin:0">Demandes de rendez-vous</h2>
-      <small style="color:#718096">
+      <small style="color:#a1a1aa">
         Confirmez, refusez ou contactez vos clients.
       </small>
     </div>
@@ -783,8 +1415,8 @@ html {
   </div>
 
   <div id="cards" class="cards"></div>
+</div>
 
-</section>
 
 <p id="message" role="status" aria-live="polite"></p>
 
@@ -811,6 +1443,106 @@ const pad = n => String(n).padStart(2,'0');
 let selectedDate = dateKey(new Date());
 
 const msg = t => $('message').textContent = t;
+// Affichage des messages dans le tableau de bord
+const messageBox = document.getElementById('message');
+
+if (messageBox) {
+  messageBox.style.display = 'block';
+  messageBox.style.color = '#20c879';
+  messageBox.style.marginTop = '12px';
+  messageBox.style.fontWeight = 'bold';
+}
+
+// DATE ET HEURE EN DIRECT
+
+function updateAdminClock() {
+
+  const now = new Date();
+
+  $('liveDate').textContent =
+    new Intl.DateTimeFormat('fr-FR',{
+      weekday:'long',
+      day:'numeric',
+      month:'long',
+      year:'numeric'
+    }).format(now);
+
+  $('liveTime').textContent =
+    new Intl.DateTimeFormat('fr-FR',{
+      hour:'2-digit',
+      minute:'2-digit',
+      second:'2-digit'
+    }).format(now);
+
+}
+
+updateAdminClock();
+
+setInterval(updateAdminClock,1000);
+
+
+// ACTUALISER L'AFFICHAGE
+
+
+$('refreshDashboard').onclick = async () => {
+
+  const button = $('refreshDashboard');
+
+  button.disabled = true;
+  button.textContent = 'Actualisation...';
+
+  try {
+
+    // Relire les réservations depuis Firebase
+    const reservationsSnap = await garageDb
+      .collection('reservations')
+      .orderBy('createdAt','desc')
+      .get({ source:'server' });
+
+    reservationsData = [];
+
+    reservationsSnap.forEach(doc => {
+      reservationsData.push({
+        id:doc.id,
+        data:doc.data()
+      });
+    });
+
+    // Relire les créneaux occupés
+    const slotsSnap = await garageDb
+      .collection('slots')
+      .get({ source:'server' });
+
+    slotsData = [];
+
+    slotsSnap.forEach(doc => {
+      slotsData.push({
+        id:doc.id,
+        data:doc.data()
+      });
+    });
+
+    updateStats();
+    render();
+    renderCalendar();
+    renderOverview();
+
+    msg('Tableau de bord actualisé avec succès.');
+  } catch(error) {
+
+    console.error('Erreur actualisation :',error);
+
+    msg('Impossible d’actualiser : ' + error.message);
+
+  } finally {
+
+    button.disabled = false;
+    button.textContent = '↻ Actualiser';
+
+  }
+
+};
+
 
 const statusText = {
   en_attente:'En attente',
@@ -883,126 +1615,346 @@ const pendingCount = reservationsData.filter(
 ).length;
 
 $('pendingMenuCount').textContent = pendingCount;
-
+$('topbarPendingCount').textContent = pendingCount;
 $('pendingMenuCount').style.display =
   pendingCount > 0 ? 'inline-block' : 'none';
+
 }
 
-// CALENDRIER
+// ===== MISE A JOUR DU TABLEAU DE BORD =====
+
+function renderOverview() {
+
+  const total = reservationsData.length;
+
+  const pending = reservationsData.filter(
+    x => x.data.status === 'en_attente'
+  ).length;
+
+  const confirmed = reservationsData.filter(
+    x => x.data.status === 'confirme'
+  ).length;
+
+  const refused = reservationsData.filter(
+    x => x.data.status === 'refuse'
+  ).length;
+
+  $('overviewTotal').textContent = total;
+  $('overviewPending').textContent = pending;
+  $('overviewConfirmed').textContent = confirmed;
+  $('overviewRefused').textContent = refused;
+
+  // GRAPHIQUE DES 7 DERNIERS JOURS
+
+  const chart = $('reservationsChart');
+  chart.replaceChildren();
+
+  const days = [];
+
+  for (let i = 6; i >= 0; i--) {
+    const date = new Date();
+    date.setHours(0,0,0,0);
+    date.setDate(date.getDate() - i);
+
+    const key = dateKey(date);
+
+    const count = reservationsData.filter(
+      x => x.data.date === key
+    ).length;
+
+    days.push({
+      key,
+      label: new Intl.DateTimeFormat('fr-FR', {
+        weekday:'short'
+      }).format(date),
+      count
+    });
+  }
+
+  const maxCount = Math.max(
+    1,
+    ...days.map(day => day.count)
+  );
+
+  days.forEach(day => {
+
+    const column = document.createElement('div');
+    column.className = 'chart-day';
+
+    const area = document.createElement('div');
+    area.className = 'chart-bar-area';
+
+    const bar = document.createElement('div');
+    bar.className = 'chart-bar';
+
+    const height = day.count === 0
+      ? 4
+      : Math.max(8, (day.count / maxCount) * 100);
+
+    bar.style.height = height + '%';
+    bar.title = day.count + ' réservation(s)';
+
+    area.append(bar);
+
+    const count = document.createElement('strong');
+    count.textContent = day.count;
+
+    const label = document.createElement('small');
+    label.textContent = day.label;
+
+    column.append(area, count, label);
+    chart.append(column);
+
+  });
+
+  // DERNIÈRES RÉSERVATIONS
+
+  const recent = $('recentReservations');
+  recent.replaceChildren();
+
+  const latestReservations = reservationsData.slice(0,5);
+
+  if (latestReservations.length === 0) {
+    const empty = document.createElement('div');
+    empty.className = 'empty';
+    empty.textContent = 'Aucune réservation enregistrée.';
+    recent.append(empty);
+  }
+
+  latestReservations.forEach(({data}) => {
+
+    const row = document.createElement('div');
+    row.className = 'overview-row';
+
+    const name = document.createElement('strong');
+    name.textContent = safeText(data.name);
+
+    const details = document.createElement('small');
+    details.textContent =
+      safeText(data.vehicle) + ' · ' +
+      safeText(data.service);
+
+    const date = document.createElement('small');
+    date.textContent =
+      safeText(data.date) + ' à ' + safeText(data.time);
+
+    const badge = document.createElement('span');
+    badge.className = 'status ' + statusClass(data.status);
+    badge.textContent = statusText[data.status] || 'Inconnu';
+
+    row.append(name, details, date, badge);
+    recent.append(row);
+
+  });
+
+  // PROCHAINS RENDEZ-VOUS
+
+  const upcoming = $('upcomingReservations');
+  upcoming.replaceChildren();
+
+  const now = new Date();
+
+  const nextReservations = reservationsData
+    .filter(item => {
+
+      const data = item.data;
+
+      if (!data.date || data.status === 'refuse') {
+        return false;
+      }
+
+      const appointment = new Date(
+        data.date + 'T' + (data.time || '00:00')
+      );
+
+      return !Number.isNaN(appointment.getTime()) &&
+        appointment >= now;
+
+    })
+    .sort((a,b) => {
+
+      const dateA = a.data.date + ' ' + (a.data.time || '');
+      const dateB = b.data.date + ' ' + (b.data.time || '');
+
+      return dateA.localeCompare(dateB);
+
+    })
+    .slice(0,5);
+
+  if (nextReservations.length === 0) {
+    const empty = document.createElement('div');
+    empty.className = 'empty';
+    empty.textContent = 'Aucun prochain rendez-vous.';
+    upcoming.append(empty);
+  }
+
+  nextReservations.forEach(({data}) => {
+
+    const row = document.createElement('div');
+    row.className = 'overview-row';
+
+    const name = document.createElement('strong');
+    name.textContent = safeText(data.name);
+
+    const details = document.createElement('small');
+    details.textContent =
+      safeText(data.vehicle) + ' · ' +
+      safeText(data.service);
+
+    const date = document.createElement('small');
+    date.textContent =
+      safeText(data.date) + ' à ' + safeText(data.time);
+
+    const badge = document.createElement('span');
+    badge.className = 'status ' + statusClass(data.status);
+    badge.textContent = statusText[data.status] || 'Inconnu';
+
+    row.append(name, details, date, badge);
+    upcoming.append(row);
+
+  });
+
+}
+
+
+// AFFICHAGE DU CALENDRIER
 
 function renderCalendar() {
 
   const calendar = $('calendar');
+  const monthTitle = $('monthTitle');
+
+  if (!calendar || !monthTitle) {
+    console.error('Éléments du calendrier introuvables.');
+    return;
+  }
+
   calendar.replaceChildren();
 
   const year = displayedMonth.getFullYear();
   const month = displayedMonth.getMonth();
 
-  $('monthTitle').textContent =
-    new Intl.DateTimeFormat('fr-FR',{
-      month:'long',
-      year:'numeric'
-    }).format(displayedMonth);
+  monthTitle.textContent = new Intl.DateTimeFormat('fr-FR', {
+    month: 'long',
+    year: 'numeric'
+  }).format(displayedMonth);
 
-  ['Lun','Mar','Mer','Jeu','Ven','Sam','Dim'].forEach(day => {
+  // Jours de la semaine
+  const weekdays = ['Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam', 'Dim'];
 
-    const el = document.createElement('div');
-
-    el.className = 'weekday';
-    el.textContent = day;
-
-    calendar.append(el);
-
+  weekdays.forEach(day => {
+    const header = document.createElement('div');
+    header.className = 'calendar-weekday';
+    header.textContent = day;
+    calendar.append(header);
   });
 
-  const first = new Date(year,month,1);
-  const offset = (first.getDay()+6)%7;
-  const start = new Date(year,month,1-offset);
+  // Premier jour du mois
+  const firstDay = new Date(year, month, 1);
+
+  // Décalage pour commencer le calendrier le lundi
+  const offset = (firstDay.getDay() + 6) % 7;
+
+  // Nombre de jours dans le mois
+  const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+  // Cases vides avant le premier jour
+  for (let i = 0; i < offset; i++) {
+    const empty = document.createElement('div');
+    empty.className = 'calendar-day empty-day';
+    calendar.append(empty);
+  }
+
   const today = dateKey(new Date());
 
-  for(let i=0;i<42;i++) {
+  // Affichage des jours
+  for (let day = 1; day <= daysInMonth; day++) {
 
-    const date = new Date(start);
-
-    date.setDate(start.getDate()+i);
-
+    const date = new Date(year, month, day);
     const key = dateKey(date);
 
     const dayReservations = reservationsData.filter(
-      x => x.data.date === key
+      item => item.data.date === key
     );
+
+    const pending = dayReservations.filter(
+      item => item.data.status === 'en_attente'
+    ).length;
+
+    const confirmed = dayReservations.filter(
+      item => item.data.status === 'confirme'
+    ).length;
+
+    const refused = dayReservations.filter(
+      item => item.data.status === 'refuse'
+    ).length;
 
     const cell = document.createElement('button');
 
     cell.type = 'button';
-    cell.className = 'day';
+    cell.className = 'calendar-day';
 
-    if(date.getMonth() !== month) {
-      cell.classList.add('other');
-    }
-
-    if(key === today) {
+    if (key === today) {
       cell.classList.add('today');
     }
 
-    if(key === selectedDate) {
+    if (key === selectedDate) {
       cell.classList.add('selected');
     }
 
-    const number = document.createElement('span');
-
-    number.className = 'day-number';
-    number.textContent = date.getDate();
+    const number = document.createElement('strong');
+    number.textContent = day;
 
     cell.append(number);
 
-    const events = document.createElement('span');
+    if (dayReservations.length > 0) {
 
-    events.className = 'day-events';
+      const indicators = document.createElement('div');
+      indicators.className = 'calendar-indicators';
 
-    dayReservations.slice(0,3).forEach(item => {
+      if (pending > 0) {
+        const dot = document.createElement('span');
+        dot.className = 'dot pending-dot';
+        dot.title = pending + ' en attente';
+        indicators.append(dot);
+      }
 
-      const event = document.createElement('span');
+      if (confirmed > 0) {
+        const dot = document.createElement('span');
+        dot.className = 'dot confirmed-dot';
+        dot.title = confirmed + ' confirmé(s)';
+        indicators.append(dot);
+      }
 
-      event.className = 'event ' + statusClass(item.data.status);
+      if (refused > 0) {
+        const dot = document.createElement('span');
+        dot.className = 'dot refused-dot';
+        dot.title = refused + ' refusé(s)';
+        indicators.append(dot);
+      }
 
-      event.textContent =
-        (item.data.time || '') + ' ' +
-        (item.data.name || 'Rendez-vous');
+      cell.append(indicators);
 
-      events.append(event);
-
-    });
-
-    if(dayReservations.length > 3) {
-
-      const more = document.createElement('span');
-
-      more.className = 'more';
-      more.textContent = `+${dayReservations.length-3} autres`;
-
-      events.append(more);
-
+      const count = document.createElement('small');
+      count.textContent = dayReservations.length + ' RDV';
+      cell.append(count);
     }
 
-    cell.append(events);
-
-    cell.onclick = () => {
+    cell.addEventListener('click', () => {
 
       selectedDate = key;
 
       renderCalendar();
       renderDayDetail();
 
-    };
+    });
 
     calendar.append(cell);
-
   }
 
   renderDayDetail();
-
 }
+
 
 function renderDayDetail() {
 
@@ -1344,10 +2296,10 @@ $('loginForm').onsubmit = async e => {
 
   e.preventDefault();
 
-  if(!window.garageDb) {
-    msg('Configuration Firebase manquante.');
-    return;
-  }
+  if (typeof garageDb === 'undefined') {
+  msg('Configuration Firebase manquante. Vérifiez firebase-config.js.');
+  return;
+}
 
   try {
 
@@ -1410,7 +2362,7 @@ $('todayBtn').onclick = () => {
 
 // FIREBASE ET AUTHENTIFICATION
 
-if(window.garageDb) {
+if (typeof garageDb !== 'undefined') {
 
   firebase.auth().onAuthStateChanged(async user => {
 
@@ -1434,6 +2386,7 @@ if(window.garageDb) {
 
     updateStats();
     renderCalendar();
+renderOverview();
 
     if(!user) return;
 
@@ -1483,6 +2436,7 @@ if(window.garageDb) {
           updateStats();
           render();
           renderCalendar();
+renderOverview();
 
         },error => {
 
@@ -1508,7 +2462,8 @@ if(window.garageDb) {
 
           });
 
-          updateStats();
+                    updateStats();
+          renderOverview();
 
         },error => {
 
@@ -1532,36 +2487,58 @@ if(window.garageDb) {
 
 }
 
-// NAVIGATION DU MENU LATERAL
+
+// NAVIGATION ENTRE LES RUBRIQUES
+const adminViews = [
+  'overviewView',
+  'statisticsView',
+  'calendarView',
+  'reservationsView'
+];
 
 document.querySelectorAll('.sidebar-link[href^="#"]').forEach(link => {
+
+  const viewId = link.getAttribute('href').substring(1);
+
+  // Ignorer les liens qui ne correspondent pas à une rubrique
+  if (!adminViews.includes(viewId)) return;
 
   link.addEventListener('click', function(event) {
 
     event.preventDefault();
 
-    const id = this.getAttribute('href').substring(1);
-    const target = document.getElementById(id);
+    // Masquer toutes les rubriques
+    adminViews.forEach(id => {
+      const view = document.getElementById(id);
+      if (view) view.classList.remove('active');
+    });
 
-    if (!target) {
-      console.error('Rubrique introuvable :', id);
+    // Afficher la rubrique sélectionnée
+    const selectedView = document.getElementById(viewId);
+
+    if (!selectedView) {
+      console.error('Rubrique introuvable :', viewId);
       return;
     }
 
+    selectedView.classList.add('active');
+
+    // Mettre à jour le menu actif
     document.querySelectorAll('.sidebar-link').forEach(item => {
       item.classList.remove('active');
     });
 
     this.classList.add('active');
 
-    target.scrollIntoView({
-      behavior: 'smooth',
-      block: 'start'
-    });
+    // Actualiser la rubrique affichée
+    if (viewId === 'statisticsView') updateStats();
+    if (viewId === 'calendarView') renderCalendar();
+    if (viewId === 'reservationsView') render();
 
   });
 
 });
+
 
 // DECONNEXION DU MENU
 
@@ -1582,4 +2559,3 @@ if (sidebarLogout) {
 </script>
 </body>
 </html>
-
