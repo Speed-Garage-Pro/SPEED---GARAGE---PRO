@@ -1,0 +1,428 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nos services | SPEED GARAGE PRO</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: #101010;
+    color: white;
+}
+
+header {
+    padding: 22px;
+    text-align: center;
+    background: #080808;
+    border-bottom: 3px solid #e31b23;
+}
+
+.logo {
+    font-size: 27px;
+    font-weight: 800;
+}
+
+.logo span:nth-child(1) { color: #e31b23; }
+.logo span:nth-child(2) { color: #ffd43b; }
+.logo span:nth-child(3) { color: #20b15a; }
+
+.container {
+    width: 90%;
+    max-width: 1000px;
+    margin: 40px auto;
+}
+
+.back {
+    color: #ffd43b;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.content {
+    margin-top: 25px;
+    padding: 35px;
+    background: #1b1b1b;
+    border-radius: 18px;
+    border: 1px solid #333;
+    box-shadow: 0 10px 35px #0008;
+}
+
+h1 {
+    color: #ffd43b;
+    font-size: 32px;
+}
+
+h2 {
+    color: #e31b23;
+    margin-top: 32px;
+    font-size: 21px;
+}
+
+.description {
+    color: #ddd;
+    line-height: 1.9;
+}
+
+ul {
+    color: #ddd;
+    line-height: 2.2;
+    padding-left: 25px;
+}
+
+ul li::marker {
+    color: #ffd43b;
+}
+
+.video-box {
+    margin-top: 35px;
+    padding: 20px;
+    background: #111;
+    border-radius: 14px;
+    border: 1px solid #333;
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    border-radius: 12px;
+    background: #000;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+.youtube-link {
+    display: inline-block;
+    margin-top: 18px;
+    padding: 12px 18px;
+    background: #e31b23;
+    color: white;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.youtube-link:hover {
+    background: #b9151b;
+}
+
+.actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 35px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 14px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: .3s;
+}
+
+.reserve {
+    background: #e31b23;
+    color: white;
+}
+
+.quote {
+    background: #20b15a;
+    color: white;
+}
+
+.back-btn {
+    background: #ffd43b;
+    color: #111;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    opacity: .9;
+}
+
+footer {
+    text-align: center;
+    padding: 25px;
+    color: #999;
+    background: #080808;
+    margin-top: 50px;
+}
+
+@media(max-width:600px) {
+    .content { padding: 20px; }
+    h1 { font-size: 25px; }
+    h2 { font-size: 19px; }
+    .actions { flex-direction: column; }
+    .btn { text-align: center; }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">
+        <span>SPEED</span>
+        <span>GARAGE</span>
+        <span>PRO</span>
+    </div>
+</header>
+
+<main class="container">
+
+    <a href="index.html" class="back">
+        <i class="fas fa-arrow-left"></i> Retour aux services
+    </a>
+
+    <section class="content">
+
+        <h1 id="title">Présentation du service</h1>
+
+        <p class="description" id="description"></p>
+
+        <h2>Pourquoi ce service est-il important ?</h2>
+        <p class="description" id="importance"></p>
+
+        <h2>Quand faut-il intervenir ?</h2>
+        <ul id="signs"></ul>
+
+        <div class="video-box" id="videoBox">
+
+            <h2>
+                <i class="fab fa-youtube"></i>
+                Vidéo explicative
+            </h2>
+
+            <div class="video-container" id="videoContainer">
+                <iframe
+                    id="youtubeVideo"
+                    src=""
+                    title="Vidéo explicative SPEED GARAGE PRO"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen>
+                </iframe>
+            </div>
+
+            <a href="#" target="_blank" rel="noopener"
+               class="youtube-link" id="youtubeLink">
+                <i class="fab fa-youtube"></i>
+                Voir les vidéos sur YouTube
+            </a>
+
+        </div>
+
+        <div class="actions">
+
+            <a href="#" class="btn reserve" id="reserveBtn">
+                <i class="fas fa-calendar-check"></i>
+                Prendre rendez-vous
+            </a>
+
+            <a href="#" class="btn quote" id="quoteBtn">
+                <i class="fas fa-file-invoice"></i>
+                Demander un devis
+            </a>
+
+            <a href="index.html" class="btn back-btn">
+                <i class="fas fa-home"></i>
+                Retour à l'accueil
+            </a>
+
+        </div>
+
+    </section>
+</main>
+
+<footer>
+    © 2026 SPEED GARAGE PRO — Tous droits réservés
+</footer>
+
+<script>
+
+const services = {
+
+    "Pneumatiques": {
+        description: "Nous contrôlons l'état de vos pneus, leur pression et leur usure. Nous vous accompagnons pour le remplacement et l'entretien de vos pneumatiques.",
+        importance: "Des pneus en bon état améliorent l'adhérence, le freinage et la sécurité de votre véhicule.",
+        signs: [
+            "Usure importante ou irrégulière des pneus",
+            "Perte régulière de pression",
+            "Vibrations pendant la conduite",
+            "Pneu endommagé ou déformé"
+        ],
+        videoId: "",
+        search: "montage équilibrage remplacement pneus voiture tutoriel français"
+    },
+
+    "Révision éco": {
+        description: "Notre révision économique permet de contrôler les éléments essentiels de votre véhicule et de réaliser son entretien courant.",
+        importance: "Un entretien régulier aide à préserver le moteur, limiter les pannes et prolonger la durée de vie du véhicule.",
+        signs: [
+            "Voyant d'entretien allumé",
+            "Vidange à effectuer",
+            "Bruits inhabituels",
+            "Entretien périodique dépassé"
+        ],
+        videoId: "",
+        search: "révision voiture vidange entretien moteur tutoriel français"
+    },
+
+    "Contrôle technique": {
+        description: "Nous réalisons les vérifications nécessaires pour évaluer l'état général et les principaux équipements de sécurité de votre véhicule.",
+        importance: "Un contrôle régulier permet de repérer les défauts et de préparer votre véhicule à son contrôle réglementaire.",
+        signs: [
+            "Contrôle périodique à venir",
+            "Éclairage défectueux",
+            "Freinage anormal",
+            "Pneus ou équipements détériorés"
+        ],
+        videoId: "",
+        search: "préparer voiture contrôle technique points de contrôle français"
+    },
+
+    "Courroie de distribution": {
+        description: "Nous contrôlons et remplaçons la courroie de distribution selon les préconisations du constructeur et l'état de votre véhicule.",
+        importance: "Une courroie usée ou cassée peut provoquer de graves dommages au moteur.",
+        signs: [
+            "Échéance de remplacement atteinte",
+            "Kilométrage recommandé dépassé",
+            "Traces d'usure ou de craquelures",
+            "Historique d'entretien inconnu"
+        ],
+        videoId: "",
+        search: "remplacement courroie distribution moteur tutoriel français"
+    },
+
+    "Liquide de frein": {
+        description: "Nous vérifions le niveau et l'état du liquide de frein et procédons à son remplacement si nécessaire.",
+        importance: "Un liquide de frein en bon état contribue à conserver un freinage efficace et fiable.",
+        signs: [
+            "Pédale de frein anormalement molle",
+            "Liquide ancien ou dégradé",
+            "Voyant de frein allumé",
+            "Entretien du liquide à effectuer"
+        ],
+        videoId: "hGZq33eb_d8",
+        search: "remplacement liquide de frein purge circuit freinage français"
+    },
+
+    "Recharge Climatisation": {
+        description: "Nous contrôlons le fonctionnement de votre climatisation et réalisons les opérations d'entretien et de recharge adaptées à votre véhicule.",
+        importance: "Une climatisation bien entretenue améliore le confort et aide à maintenir un bon fonctionnement du système.",
+        signs: [
+            "Air qui ne refroidit plus suffisamment",
+            "Soufflerie moins efficace",
+            "Mauvaises odeurs",
+            "Bruit inhabituel à l'activation"
+        ],
+        videoId: "",
+        search: "fonctionnement recharge climatisation automobile tutoriel français"
+    }
+
+};
+
+const params = new URLSearchParams(window.location.search);
+const serviceName = params.get("service");
+const service = services[serviceName];
+
+if (service) {
+
+    document.title = serviceName + " | SPEED GARAGE PRO";
+
+    document.getElementById("title").textContent = serviceName;
+    document.getElementById("description").textContent = service.description;
+    document.getElementById("importance").textContent = service.importance;
+
+    const signsList = document.getElementById("signs");
+
+    service.signs.forEach(sign => {
+        const li = document.createElement("li");
+        li.textContent = sign;
+        signsList.appendChild(li);
+    });
+
+    // Vidéo YouTube
+
+    const videoBox = document.getElementById("videoBox");
+    const videoContainer = document.getElementById("videoContainer");
+    const youtubeVideo = document.getElementById("youtubeVideo");
+    const youtubeLink = document.getElementById("youtubeLink");
+
+    videoBox.style.display = "block";
+
+    youtubeLink.href =
+        "https://www.youtube.com/results?search_query=" +
+        encodeURIComponent(service.search);
+
+    if (service.videoId) {
+
+        youtubeVideo.src =
+            "https://www.youtube-nocookie.com/embed/" +
+            service.videoId;
+
+    } else {
+
+        videoContainer.style.display = "none";
+
+        youtubeLink.textContent =
+            "Rechercher une vidéo explicative sur YouTube";
+
+    }
+
+    // Réservation
+
+    document.getElementById("reserveBtn").href =
+        "index.html?reservation=" +
+        encodeURIComponent(serviceName);
+
+    // Demande de devis par email
+
+    document.getElementById("quoteBtn").href =
+        "mailto:speedgaragepro3@gmail.com?subject=" +
+        encodeURIComponent("Demande de devis - " + serviceName);
+
+} else {
+
+    document.getElementById("title").textContent =
+        "Service introuvable";
+
+    document.getElementById("description").textContent =
+        "Veuillez retourner à l'accueil et sélectionner un service.";
+
+    document.getElementById("importance").textContent = "";
+
+    document.getElementById("signs").innerHTML = "";
+
+    document.getElementById("videoBox").style.display = "none";
+
+    document.getElementById("reserveBtn").style.display = "none";
+
+    document.getElementById("quoteBtn").style.display = "none";
+
+}
+
+</script>
+
+</body>
+</html>
+

@@ -1,0 +1,12 @@
+SPEED GARAGE PRO — HORAIRES VALIDÉS
+Fuseau horaire : Africa/Conakry (UTC+0)
+Ouverture : lundi au samedi, 08:00–17:00
+Dimanche : fermé
+Capacité : 1 voiture simultanément
+Durée : 60 minutes
+Départs possibles : 08:00, 09:00, 10:00, 11:00, 12:00, 13:00, 14:00, 15:00, 16:00
+Exemple : lundi 26 octobre 2026 à 10:00 (si disponible et non passé au moment de réserver)
+
+Le navigateur affiche les créneaux libres depuis Firestore ; une transaction Cloud Function réserve atomiquement le créneau. Une demande en attente occupe le créneau. Refus = libération ; confirmation = occupation maintenue. Le garage contacte manuellement le client sur WhatsApp.
+
+MISE EN SERVICE : lire README.txt, renseigner firebase-config.js, installer/déployer les fonctions et règles Firebase, puis tester avant ouverture publique.

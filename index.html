@@ -1,0 +1,954 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="SPEED GARAGE PRO à Conakry : entretien, diagnostic et réparation automobile. Demandez un devis ou un rendez-vous via WhatsApp.">
+  <title>SPEED GARAGE PRO | Rendez-vous automobile</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+
+
+  <style>
+    /* ===== GLOBAL ===== */
+    body {
+  margin:0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.9)),
+              url('logo.png');
+  background-size: cover;
+  background-position: center;
+  color:#fff;
+}
+
+    /* ===== HEADER ===== */
+    /* HEADER PRO */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+
+  /* 🔥 FOND LUXE */
+  background: linear-gradient(90deg, #000, #111, #000);
+  border-bottom: 2px solid red;
+
+  /* Effet premium */
+  box-shadow: 0 0 20px rgba(255,0,0,0.4);
+}
+.header {
+  backdrop-filter: blur(8px);
+}
+
+/* LOGO */
+.logo {
+  width: 180px;
+  transition: 0.3s;
+}
+
+.logo:hover {
+  transform: scale(1.08);
+}
+
+    /* ===== NAV ===== */
+    nav { display:flex; justify-content:center; gap:20px; background:#222; padding:10px; }
+    nav a { color:#fff; text-decoration:none; }
+     
+     /* ===== HERO ===== */
+    .hero { text-align:center; padding:60px 20px; background:#111; }
+    .hero h1 { font-size:40px; }
+    
+    /* ===== BUTTONS ===== */
+    .btn { padding:15px 25px; margin:10px; border:none; border-radius:8px; font-size:16px; cursor:pointer; }
+    .btn-red { background:red; color:#fff; }
+    .btn-yellow { background:gold; color:#000; }
+    
+    /* ===== SERVICES ===== */
+    .section { padding:40px 20px; text-align:center; }
+
+    /* Image dans Services */
+    .service-img {
+      width:320px;
+      border-radius:10px;
+      margin:20px auto;
+      display:block;
+      box-shadow:0 0 15px rgba(255,0,0,0.5);
+    }
+
+    .features { display:flex; flex-wrap:wrap; justify-content:center; gap:20px; }
+    .card { background:#222; padding:20px; border-radius:10px; width:200px; }
+
+    footer { background:#000; text-align:center; padding:20px; margin-top:40px; }
+ footer .socials {
+  justify-content: center;
+}
+
+footer .socials a {
+  font-size: 20px;
+}
+
+.footer-pro {
+  background: linear-gradient(180deg, #000, #111);
+  color: white;
+  padding: 40px 20px 20px;
+  margin-top: 50px;
+  border-top: 2px solid red;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.footer-col {
+  flex: 1;
+  min-width: 200px;
+}
+
+.footer-col h3,
+.footer-col h4 {
+  color: red;
+  margin-bottom: 10px;
+}
+
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-col ul li {
+  margin: 8px 0;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.footer-col ul li:hover {
+  color: red;
+  transform: translateX(5px);
+}
+
+/* WhatsApp bouton */
+.whatsapp-btn {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 15px;
+  background: #25D366;
+  color: white;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.whatsapp-btn:hover {
+  transform: scale(1.05);
+}
+
+/* Réseaux */
+.footer-pro .socials {
+  display: flex;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.footer-pro .socials a {
+  font-size: 18px;
+  color: white;
+  transition: 0.3s;
+}
+
+.footer-pro .socials a:hover {
+  color: red;
+  transform: scale(1.2);
+}
+
+/* Bas */
+.footer-bottom {
+  text-align: center;
+  margin-top: 30px;
+  border-top: 1px solid #333;
+  padding-top: 15px;
+  font-size: 14px;
+  color: #aaa;
+}
+.service-btn {
+  background: #222;
+  color: #fff;
+  border: 2px solid red;
+  border-radius: 10px;
+  padding: 15px 25px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 200px;
+}
+
+.service-btn:hover {
+  background: red;
+  color: #fff;
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(255,0,0,0.6);
+}
+.service-img {
+  width:320px;
+  border-radius:10px;
+  margin:20px auto;
+  display:block;
+  box-shadow:0 0 20px red;
+  transition:0.3s;
+}
+
+/* HEADER FLEX */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background: rgba(0,0,0,0.8);
+  border-bottom: 2px solid red;
+}
+
+/* MENU */
+.menu {
+  display: flex;
+  gap: 20px;
+}
+
+.menu a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.menu a:hover {
+  color: red;
+}
+
+/* DROPDOWN */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background: #111;
+  top: 100%;
+  left: 0;
+  min-width: 150px;
+  border-radius: 5px;
+}
+
+.dropdown-content a {
+  display: block;
+  padding: 10px;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+.right-header {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.entretien h3 {
+  margin-top: 30px;
+  color: gold;
+}
+
+.entretien .card {
+  width: 220px;
+  background: #111;
+  border: 1px solid red;
+  transition: 0.3s;
+}
+
+.entretien .card:hover {
+  background: red;
+  transform: scale(1.05);
+}
+.service-img:hover {
+  transform: scale(1.05);
+}
+
+/* Réseaux sociaux */
+.socials {
+  display: flex;
+  gap: 15px;
+}
+
+.socials a {
+  color: white;
+  font-size: 18px;
+  transition: 0.3s;
+}
+
+.socials a:hover {
+  color: red;
+  transform: scale(1.2);
+}
+
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.97); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+
+    /* MODALS */
+    .modal {
+      display:none;
+      position:fixed;
+      top:0; left:0;
+      width:100%; height:100%;
+      background:rgba(0,0,0,0.8);
+      justify-content:center;
+      align-items:center;
+      z-index:999;
+    }
+    .modal-box {
+      background:#222;
+      padding:30px;
+      border-radius:10px;
+      width:300px;
+    }
+    input, select, textarea {
+      width:100%;
+      padding:10px;
+      margin:5px 0;
+      border-radius:5px;
+      border:none;
+    }
+
+    .selectable {
+  cursor: pointer;
+}
+
+.selectable.selected {
+  background: red;
+  color: white;
+  transform: scale(1.05);
+  box-shadow: 0 0 15px red;
+}
+
+
+.logo {
+  width: 180px;
+  transition: 0.3s;
+}
+
+.logo:hover {
+  transform: scale(1.05);
+}
+
+/* ===== VOITURES OCCASION ===== */
+.car-slider {
+  display:flex;
+  gap:15px;
+  overflow-x:auto;
+  padding:15px;
+  scroll-behavior:smooth;
+}
+
+.car-slider::-webkit-scrollbar {
+  display:none;
+}
+
+.car-card {
+  min-width:220px;
+  background:#111;
+  border-radius:12px;
+  overflow:hidden;
+  box-shadow:0 0 10px rgba(255,0,0,0.35);
+  transition:0.3s;
+}
+
+.car-card:hover {
+  transform:scale(1.03);
+  box-shadow:0 0 15px red;
+}
+
+.car-card img {
+  width:100%;
+  height:140px;
+  object-fit:cover;
+}
+
+.car-card h3 {
+  font-size:16px;
+  margin:10px 0 5px;
+  color:gold;
+}
+
+.car-card p {
+  font-size:13px;
+  padding-bottom:10px;
+}
+
+/* CONTAINER */
+.slider-container {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  margin-top: 20px;
+}
+
+/* TRACK */
+.slider-track {
+  display: flex;
+  width: max-content;
+  animation: scrollLeft 20s linear infinite;
+}
+
+/* IMAGES */
+.slider-track img {
+  width: 300px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-right: 15px;
+  box-shadow: 0 0 15px rgba(255,0,0,0.4);
+}
+
+/* ANIMATION */
+@keyframes scrollLeft {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+
+
+  /* Améliorations responsive et accessibilité */
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  .slider-container { max-width: 100%; }
+  .slider-track { min-width: max-content; }
+  .slider-container:hover .slider-track { animation-play-state: paused; }
+  .modal { padding: 16px; overflow-y: auto; }
+  .modal-box { width: min(100%, 440px); max-height: 90vh; overflow-y: auto; }
+  input, select, textarea { font: inherit; color: #111; }
+  input:focus-visible, select:focus-visible, textarea:focus-visible,
+  button:focus-visible, a:focus-visible { outline: 3px solid gold; outline-offset: 3px; }
+  .footer-col a { overflow-wrap: anywhere; }
+  @media (max-width: 650px) {
+    .header { padding: 14px; gap: 14px; flex-wrap: wrap; justify-content: center; }
+    .logo { width: 145px; }
+    nav { flex-wrap: wrap; gap: 12px; }
+    .hero { padding: 40px 14px; }
+    .hero h1 { font-size: clamp(25px, 7vw, 36px); }
+    .section { padding: 30px 14px; }
+    .service-img { width: min(100%, 320px); }
+    .footer-container { flex-direction: column; }
+    .btn { max-width: 100%; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+  }
+  </style>
+</head>
+<body>
+
+  <header class="header">
+  <!-- LOGO -->
+  <div class="logo-container">
+    <a href="#">
+      <img src="logo.png" alt="Speed Garage PRO" class="logo">
+    </a>
+  </div>
+
+  <div class="socials">
+    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+    <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+  </div>
+</header>
+
+<nav>
+  <a href="#services">Services</a>
+  <a href="#fidelite">Fidélité</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<section class="hero">
+  <h1>L'expertise rapide & premium en Guinée</h1>
+  <button class="btn btn-red" onclick="openReservation()">Prendre Rendez-vous</button>
+  <button class="btn btn-yellow" onclick="openDevis()">Demander un Devis</button>
+ 
+</section>
+<div class="slider-container">
+<div class="slider-track">
+
+  <img src="reparation_auto.jpeg">
+  <img src="diag_auto.jpg">
+  <img src="nos-services-complets.jpeg">
+  <img src="climatisation.jpeg">
+
+  <!-- Autres photos du garage -->
+  <img src="service.png">
+  <img src="voiture2.jpg">
+  <img src="voiture3.jpg">
+  <img src="voiture4.jpg">
+
+</div>
+</div>
+
+<section id="services" class="section">
+  <h2>Nos Services</h2>
+
+  <div class="features">
+    <button class="btn btn-red" onclick="showService('Pneumatiques')">🚗 Pneumatiques</button>
+    <button class="btn btn-red" onclick="showService('Révision éco')">🛢️ Révision éco</button>
+    <button class="btn btn-red" onclick="showService('Contrôle technique')">🔍 Contrôle technique</button>
+    <button class="btn btn-red" onclick="showService('Courroie')">⚙️ Courroie de distribution</button>
+
+<button class="btn btn-red"
+onclick="showService('Liquide de frein')">
+🛑 Liquide de frein
+</button>
+<button class="btn btn-red" onclick="showService('Climatisation')">❄️ Recharge Climatisation</button>
+
+
+  </div>
+
+  <!-- Image dynamique -->
+  <img id="serviceDisplay" class="service-img fade-in" src="" style="display:none;">
+
+</section>
+
+
+<section id="fidelite" class="section">
+  <!-- VOITURES D'OCCASION -->
+<section class="section">
+  <h2>🚘 Voitures d’Occasion</h2>
+
+  <div class="car-slider">
+
+    <div class="car-card">
+      <img src="Toyota-RAV4.jpg" alt="Voiture 1">
+      <h3>Toyota RAV4</h3>
+      <p>2020 • Automatique • Diesel</p>
+    </div>
+
+    <div class="car-card">
+      <img src="Mercedes_C.jpg" alt="Voiture 2">
+      <h3>Mercedes Classe C</h3>
+      <p>2019 • Essence • Full Options</p>
+    </div>
+
+    <div class="car-card">
+      <img src="hyundai-tucson.jpg" alt="Voiture 3">
+      <h3>Hyundai Tucson</h3>
+      <p>2021 • SUV • Garantie</p>
+    </div>
+
+  </div>
+</section>
+  <h2>Carte de Fidélité</h2>
+  <p>✔ Rapidité<br>✔ Transparence<br>✔ Qualité<br>✔ Esprit Guinéen</p>
+  <p><strong>+1 Service Gratuit</strong></p>
+</section>
+
+<footer class="footer-pro">
+
+  <div class="footer-container">
+
+    <!-- LOGO + DESCRIPTION -->
+    <div class="footer-col">
+      <h3>Speed Garage PRO</h3>
+      <p>Speed Garage Pro Guinée.</p>
+
+      <a href="https://wa.me/224613816381" target="_blank" class="whatsapp-btn">
+        💬 Contact WhatsApp
+      </a>
+    </div>
+
+    <!-- SERVICES -->
+    <div class="footer-col">
+      <h4>Nos Services</h4>
+      <ul>
+        <li onclick="selectAndOpen('Pneumatiques')">Pneumatiques</li>
+        <li onclick="selectAndOpen('Révision éco')">Révision éco</li>
+        <li onclick="selectAndOpen('Freinage')">Freinage</li>
+        <li onclick="selectAndOpen('Climatisation')">Climatisation</li>
+      </ul>
+    </div>
+
+    <!-- CONTACT -->
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <p>📍 Conakry, Guinée</p>
+      <p>📞 +224 613 81 63 81</p>
+      <p>✉️ speedgaragepro3@gmail.com</p>
+    </div>
+
+    <!-- RESEAUX -->
+    <div class="footer-col">
+      <h4>Suivez-nous</h4>
+
+      <div class="socials">
+        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- BAS -->
+  <div class="footer-bottom">
+    © 2026 Speed Garage PRO - Tous droits réservés
+  </div>
+
+</footer>
+
+<!-- WhatsApp Floating Button -->
+<a href="https://wa.me/224613816381" target="_blank" style="position:fixed; bottom:20px; right:20px; background:#25D366; color:white; padding:15px 20px; border-radius:50px; text-decoration:none; font-weight:bold;">WhatsApp</a>
+
+<!-- MODAL DEVIS -->
+<div id="devisModal" class="modal">
+  <div class="modal-box">
+    <h3>Demande de devis</h3>
+
+    <input type="text" id="d_nom" placeholder="Nom">
+    <input type="email" id="d_email" placeholder="Email">
+    <input type="tel" id="d_tel" placeholder="Téléphone">
+
+    <input type="text" id="d_marque" placeholder="Marque véhicule">
+    <input type="text" id="d_modele" placeholder="Modèle">
+    <input type="number" id="d_annee" placeholder="Année">
+    <input type="number" id="d_km" placeholder="Kilométrage">
+
+    <textarea id="d_probleme" placeholder="Décrivez le problème..."></textarea>
+
+    <button onclick="sendDevis()" class="btn btn-yellow">Envoyer</button>
+    <button onclick="closeDevis()" class="btn">Annuler</button>
+  </div>
+</div>
+
+<!-- MODAL RÉSERVATION -->
+<div id="reservationModal" class="modal">
+  <div class="modal-box">
+    <h3>Demander un rendez-vous</h3>
+    <p>Choisissez votre créneau souhaité. Le garage vous confirmera sa disponibilité sur WhatsApp.</p>
+
+    <input type="text" id="name" placeholder="Nom complet" autocomplete="name" required>
+    <input type="email" id="email" placeholder="Email" autocomplete="email" required>
+    <input type="tel" id="phone" placeholder="Téléphone WhatsApp (+224...)" autocomplete="tel" required>
+    <input type="text" id="vehicle" placeholder="Véhicule (ex. Toyota Corolla)" maxlength="100" required>
+    <input type="date" id="date" required>
+    <select id="time" required><option value="">Choisissez d’abord une date</option></select><p id="slotsFeedback" role="status"></p>
+
+    <select id="service" required>
+      <option value="">Choisir service</option>
+      <option>Pneumatiques
+</option>
+      <option>Révision éco</option>
+      <option>Contrôle technique</option>
+      <option>Courroie de distribution</option>
+      <option>Liquide de frein</option>
+      <option>Recharge Climatisation</option>
+      <option>Freinage</option>
+      <option>Autre</option>
+    </select>
+
+    <button id="reserveSubmit" onclick="sendReservation()" class="btn btn-red">Envoyer la demande</button>
+    <p id="reservationFeedback" role="status" aria-live="polite"></p>
+    <button onclick="closeReservation()" class="btn">Annuler</button>
+  </div>
+</div>
+
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-functions-compat.js"></script>
+<script src="firebase-config.js"></script>
+<script>
+/* OUVERTURE / FERMETURE DES MODALS */
+
+firebase.auth().onAuthStateChanged(async (user) => {
+  if (!user) {
+    try {
+      await firebase.auth().signInAnonymously();
+      console.log("Connexion client Firebase réussie");
+    } catch (error) {
+      console.error("Erreur connexion client :", error);
+    }
+  }
+});
+
+function openDevis() { document.getElementById('devisModal').style.display = 'flex'; }
+function closeDevis() { document.getElementById('devisModal').style.display = 'none'; }
+
+function openReservation() { document.getElementById('reservationModal').style.display = 'flex'; refreshSlots(); }
+function closeReservation() { document.getElementById('reservationModal').style.display = 'none'; }
+
+/* ENVOI DU DEVIS */
+function sendDevis() {
+  const nom = d_nom.value;
+  const email = d_email.value;
+  const tel = d_tel.value;
+  const marque = d_marque.value;
+  const modele = d_modele.value;
+  const annee = d_annee.value;
+  const km = d_km.value;
+  const probleme = d_probleme.value;
+
+  if(!nom || !email || !probleme){
+    alert('Veuillez remplir les champs obligatoires');
+    return;
+  }
+
+  const message = encodeURIComponent(
+    `Demande de devis 🚗\nNom: ${nom}\nEmail: ${email}\nTel: ${tel}\nVéhicule: ${marque} ${modele} (${annee})\nKM: ${km}\nProblème: ${probleme}`
+  );
+
+  window.open(`https://wa.me/224613816381?text=${message}`, '_blank');
+  // Le client doit appuyer sur Envoyer dans WhatsApp pour transmettre le devis.
+  closeDevis();
+}
+
+/* Créneaux publics sans informations personnelles. Fuseau : Africa/Conakry (UTC). */
+const HOURS = ['08:00','09:00','10:00','11:00','12:00','13:00','14:00','15:00','16:00'];
+const el = id => document.getElementById(id);
+const todayConakry = () => new Intl.DateTimeFormat('en-CA',{timeZone:'Africa/Conakry',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());
+function validDay(date){const d=new Date(date+'T12:00:00Z');return /^\d{4}-\d{2}-\d{2}$/.test(date)&&!isNaN(d)&&d.toISOString().slice(0,10)===date&&d.getUTCDay()!==0;}
+let slotListener=null;
+function refreshSlots(){
+ const date=el('date').value, select=el('time'); select.replaceChildren(new Option('Sélectionner une heure',''));
+ if(slotListener){slotListener();slotListener=null;}
+ if(!date||!validDay(date)||date<todayConakry()){el('slotsFeedback').textContent='Choisissez une date future du lundi au samedi.';return;}
+ if(!window.garageDb){el('slotsFeedback').textContent='Configurez Firebase.';return;}
+ el('slotsFeedback').textContent='Chargement des disponibilités…';
+ slotListener=garageDb.collection('slots').where('date','==',date).onSnapshot(snap=>{
+  const taken=new Set(snap.docs.filter(d=>d.data().occupied===true).map(d=>d.data().time));
+  const current=select.value;select.replaceChildren(new Option('Choisir une heure',''));
+  for(const h of HOURS){const past=(date+'T'+h+':00Z')<=new Date().toISOString();if(!taken.has(h)&&!past)select.add(new Option(h,h));}
+  if([...select.options].some(o=>o.value===current))select.value=current;
+  el('slotsFeedback').textContent=(select.options.length-1)+' créneau(x) libre(s)';
+ },()=>el('slotsFeedback').textContent='Impossible de charger les créneaux.');
+}
+el('date').min=todayConakry();el('date').addEventListener('change',refreshSlots);
+let savingReservation=false;
+
+let savingReservation = false;
+
+async function sendReservation() {
+  if (savingReservation) return;
+
+  const el = id => document.getElementById(id);
+  const feedback = el('reservationFeedback');
+
+  const data = Object.fromEntries(
+    ['name', 'email', 'phone', 'vehicle', 'date', 'time', 'service']
+      .map(k => [k, el(k).value.trim()])
+  );
+
+  if (Object.values(data).some(v => !v)) {
+    feedback.textContent = 'Remplissez tous les champs.';
+    return;
+  }
+
+  if (!validDay(data.date) || data.date < todayConakry()
+      || !HOURS.includes(data.time)
+      || new Date(data.date + 'T' + data.time + ':00Z') <= new Date()) {
+    feedback.textContent = 'Choisissez un créneau futur valide.';
+    return;
+  }
+
+  if (!firebase.auth().currentUser) {
+    feedback.textContent = 'Connexion en cours. Réessayez.';
+    return;
+  }
+
+  const uid = firebase.auth().currentUser.uid;
+  const id = data.date + '_' + data.time.replace(':', '-');
+
+  const reservation = {
+    ...data,
+    uid,
+    status: 'en_attente',
+    createdAt: firebase.firestore.FieldValue.serverTimestamp()
+  };
+
+  const slot = {
+    date: data.date,
+    time: data.time,
+    occupied: true,
+    uid,
+    createdAt: firebase.firestore.FieldValue.serverTimestamp()
+  };
+
+  savingReservation = true;
+  el('reserveSubmit').disabled = true;
+  feedback.textContent = 'Enregistrement en cours...';
+
+  try {
+    const batch = garageDb.batch();
+
+    batch.set(garageDb.collection('slots').doc(id), slot);
+    batch.set(garageDb.collection('reservations').doc(id), reservation);
+
+    await batch.commit();
+
+    feedback.textContent =
+      'Votre demande est enregistrée ! Référence : ' + id +
+      '. Le garage doit encore la confirmer.';
+
+    el('time').value = '';
+    refreshSlots();
+
+  } catch (error) {
+    console.error(error);
+    feedback.textContent =
+      'Impossible de réserver. Le créneau est peut-être déjà pris. ' +
+      'Actualisez les disponibilités et réessayez.';
+    refreshSlots();
+
+  } finally {
+    savingReservation = false;
+    el('reserveSubmit').disabled = false;
+  }
+}
+
+ if(!window.garageDb||!firebase.functions){feedback.textContent='Firebase n’est pas configuré.';return;}
+ savingReservation=true;el('reserveSubmit').disabled=true;feedback.textContent='Réservation en cours…';
+ try{
+  const response=await firebase.app().functions('europe-west1').httpsCallable('bookSlot')(data);
+  feedback.textContent='Demande enregistrée sous la référence '+response.data.id+'. Le garage doit encore confirmer.';
+  el('time').value='';refreshSlots();
+ }catch(e){feedback.textContent=e.code==='functions/already-exists'?'Ce créneau vient d’être réservé. Choisissez-en un autre.':'Impossible de réserver : '+(e.message||'réessayez.');refreshSlots();}
+ finally{savingReservation=false;el('reserveSubmit').disabled=false;}
+}
+
+function showService(type) {
+  const img = document.getElementById("serviceDisplay");
+
+  let src = "";
+
+  if (type === "Pneumatiques") src = "reparation_auto.jpeg";
+  if (type === "Révision éco") src = "diagnostique-electronique.jpeg";
+  if (type === "Contrôle technique") src = "nos-services-complets.jpeg";
+  if (type === "Courroie de distribution") src = "Images/pneus.png";
+
+if (type === "Liquide de frein") src = "nos-services-complets.jpeg";
+if (type === "Recharge Climatisation") src = "climatisation.jpeg";
+
+  img.src = src;
+  img.style.display = "block";
+
+}
+
+function openEntretien() {
+  document.getElementById('entretienModal').style.display = 'flex';
+}
+
+function closeEntretien() {
+  document.getElementById('entretienModal').style.display = 'none';
+}
+
+let selectedService = "";
+
+function selectService(element) {
+  // enlever sélection précédente
+  document.querySelectorAll('.selectable').forEach(el => {
+    el.classList.remove('selected');
+  });
+
+  // ajouter sélection
+  element.classList.add('selected');
+
+  // stocker valeur
+  selectedService = element.innerText;
+}
+function goToReservation() {
+  if (!selectedService) {
+    alert("Veuillez choisir une prestation");
+    return;
+  }
+
+  // fermer modal entretien
+  closeEntretien();
+
+  // ouvrir réservation
+  openReservation();
+
+  // remplir automatiquement le service
+  document.getElementById("service").value = selectedService;
+}
+function quickSelect(btn) {
+  // reset visuel
+  document.querySelectorAll('.service-btn').forEach(b => {
+    b.classList.remove('selected');
+  });
+
+  btn.classList.add('selected');
+
+  const service = btn.innerText;
+
+  // message WhatsApp direct
+  const message = encodeURIComponent(
+    `Bonjour 🚗\nJe souhaite un service : ${service}`
+  );
+
+  window.open(`https://wa.me/224613816381?text=${message}`, '_blank');
+}
+function selectServiceAndReserve(btn) {
+
+  // effet visuel sélection
+  document.querySelectorAll('.service-btn').forEach(b => {
+    b.classList.remove('selected');
+  });
+
+  btn.classList.add('selected');
+
+  const service = btn.innerText;
+
+  // ouvrir la réservation
+  openReservation();
+
+  // remplir automatiquement le champ service
+  document.getElementById("service").value = service;
+}
+function selectAndOpen(service) {
+
+  // ouvrir le formulaire
+  openReservation();
+
+  // attendre que le modal soit visible
+  setTimeout(() => {
+
+    const select = document.getElementById("service");
+
+    // sélectionner automatiquement la bonne option
+    for (let i = 0; i < select.options.length; i++) {
+      if (select.options[i].value === service) {
+        select.selectedIndex = i;
+        break;
+      }
+    }
+
+  }, 200);
+}
+// Firebase désactivé : il faut un vrai projet et des règles de sécurité
+// avant d'ajouter un enregistrement des réservations.
+
+</script>
+
+</body>
+</html>

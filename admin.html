@@ -1,0 +1,1585 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#111827">
+<title>Administration | SPEED GARAGE PRO</title>
+
+<style>
+
+:root {
+  --bg:#101216;
+  --surface:#1b1f27;
+  --ink:#f3f4f6;
+  --muted:#a1a1aa;
+  --line:#343a46;
+  --red:#dc2626;
+  --green:#16a34a;
+  --amber:#f59e0b;
+  --blue:#3b82f6;
+  --shadow:0 12px 30px rgba(0,0,0,.22);
+}
+
+*{box-sizing:border-box}
+
+body {
+  margin:0;
+  background:
+    radial-gradient(ellipse at top left,#29202a 0%,transparent 38%),
+    linear-gradient(135deg,#101216,#171a21);
+  color:var(--ink);
+  font:15px system-ui,sans-serif;
+}
+
+button,input,select{font:inherit}
+
+button {
+  cursor:pointer;
+  border:0;
+  border-radius:10px;
+  padding:11px 15px;
+  background:var(--red);
+  color:white;
+  font-weight:700;
+  transition:transform .2s,filter .2s;
+}
+
+button:hover{filter:brightness(1.12);transform:translateY(-1px)}
+button:disabled{opacity:.5;cursor:not-allowed}
+
+header {
+  background:linear-gradient(115deg,#090b0f,#202631);
+  color:white;
+  padding:22px;
+  border-bottom:4px solid var(--red);
+  box-shadow:0 8px 25px rgba(0,0,0,.3);
+}
+
+.header-inner {
+  max-width:1450px;
+  margin:auto;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:15px;
+}
+
+.brand {
+  font-size:24px;
+  font-weight:950;
+  letter-spacing:1px;
+}
+
+.garage{color:#facc15}
+.pro{color:#4ade80}
+
+.header-sub {
+  color:#cbd5e1;
+  font-size:12px;
+  margin-top:4px;
+}
+
+main {
+  max-width:1450px;
+  margin:auto;
+  padding:25px 20px 50px;
+}
+
+h1,h2,h3,p{margin-top:0}
+h1{font-size:23px;margin-bottom:0}
+h2{font-size:19px}
+h3{font-size:15px}
+
+.hidden{display:none!important}
+
+.panel,.stat,.calendar-card,.item {
+  background:linear-gradient(145deg,#20252e,#191d25);
+  border:1px solid var(--line);
+  border-radius:16px;
+  box-shadow:var(--shadow);
+}
+
+
+.dashboard-layout {
+  display:grid;
+  grid-template-columns:220px minmax(0,1fr);
+  gap:20px;
+  align-items:start;
+}
+
+.sidebar {
+  background:linear-gradient(160deg,#202630,#11151c);
+  border:1px solid #343a46;
+  border-left:4px solid #dc2626;
+  border-radius:15px;
+  padding:18px 12px;
+  position:sticky;
+  top:20px;
+  min-height:380px;
+  box-shadow:0 10px 30px rgba(0,0,0,.25);
+}
+
+.sidebar-title {
+  color:#facc15;
+  font-size:11px;
+  font-weight:900;
+  letter-spacing:1px;
+  padding:8px 10px 17px;
+}
+
+.sidebar a {
+  display:block;
+  color:#d1d5db;
+  text-decoration:none;
+  padding:13px 10px;
+  margin:5px 0;
+  border-radius:9px;
+  font-size:13px;
+  font-weight:700;
+  transition:.2s;
+}
+
+.sidebar a:hover {
+  background:#3a2027;
+  color:white;
+  border-left:3px solid #dc2626;
+}
+
+.sidebar-footer {
+  border-top:1px solid #343a46;
+  margin-top:30px;
+  padding:17px 8px 5px;
+  color:#facc15;
+  font-size:11px;
+  font-weight:900;
+}
+
+.sidebar-footer small {
+  display:block;
+  color:#9ca3af;
+  margin-top:5px;
+  font-weight:400;
+}
+
+.dashboard-content {
+  min-width:0;
+}
+
+@media(max-width:850px) {
+  .dashboard-layout {
+    grid-template-columns:1fr;
+  }
+
+  .sidebar {
+    position:static;
+    min-height:auto;
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    gap:5px;
+    padding:10px;
+  }
+
+  .sidebar-title {
+    width:100%;
+    padding:5px 8px;
+  }
+
+  .sidebar a {
+    margin:0;
+    padding:10px;
+  }
+
+  .sidebar-footer {
+    display:none;
+  }
+}
+
+
+.panel{padding:22px;margin-bottom:20px}
+
+.login-panel {
+  max-width:460px;
+  margin:8vh auto;
+  border-top:4px solid var(--red);
+}
+
+input,select {
+  padding:12px;
+  border:1px solid #424956;
+  border-radius:10px;
+  background:#11151c;
+  color:#f9fafb;
+  outline:none;
+}
+
+input:focus,select:focus {
+  border-color:#ef4444;
+  box-shadow:0 0 0 3px rgba(220,38,38,.15);
+}
+
+.login-panel input {
+  display:block;
+  width:100%;
+  margin:10px 0;
+}
+
+.login-panel button{width:100%;margin-top:8px}
+
+.secondary{background:#343b48;color:#f3f4f6}
+.green{background:#15803d}
+.dark{background:#111827}
+
+.toolbar,.welcome,.section-heading {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:14px;
+  flex-wrap:wrap;
+}
+
+.welcome {
+  border-left:4px solid var(--red);
+}
+
+.welcome p {
+  color:var(--muted);
+  margin:6px 0 0;
+}
+
+.stats {
+  display:grid;
+  grid-template-columns:repeat(5,minmax(0,1fr));
+  gap:14px;
+  margin:20px 0 28px;
+}
+
+.stat {
+  padding:19px;
+  position:relative;
+  overflow:hidden;
+  transition:transform .2s,border-color .2s;
+}
+
+.stat:hover {
+  transform:translateY(-3px);
+  border-color:#606978;
+}
+
+.stat:before {
+  content:"";
+  position:absolute;
+  left:0;
+  top:0;
+  bottom:0;
+  width:5px;
+  background:var(--accent);
+}
+
+.stat small{color:var(--muted);font-weight:600}
+
+.stat strong {
+  display:block;
+  font-size:29px;
+  margin-top:8px;
+  color:white;
+}
+
+.stat.red{--accent:#ef4444}
+.stat.orange{--accent:#f59e0b}
+.stat.green-stat{--accent:#22c55e}
+.stat.blue{--accent:#3b82f6}
+.stat.dark-stat{--accent:#a1a1aa}
+
+.section-heading{margin:28px 0 14px}
+
+.calendar-card {
+  padding:20px;
+  margin-bottom:25px;
+}
+
+.calendar-toolbar {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-bottom:18px;
+}
+
+.month-title {
+  font-size:20px;
+  font-weight:800;
+  text-transform:capitalize;
+  color:white;
+}
+
+.calendar-controls {
+  display:flex;
+  gap:8px;
+  align-items:center;
+}
+
+.calendar-controls button{padding:9px 13px}
+
+.calendar-grid {
+  display:grid;
+  grid-template-columns:repeat(7,minmax(0,1fr));
+  border-top:1px solid var(--line);
+  border-left:1px solid var(--line);
+  border-radius:10px;
+  overflow:hidden;
+}
+
+.weekday {
+  padding:11px 4px;
+  text-align:center;
+  background:#292f3a;
+  color:#d1d5db;
+  font-size:12px;
+  font-weight:800;
+  border-right:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+}
+
+.day {
+  min-width:0;
+  min-height:110px;
+  padding:7px;
+  background:#1b2029;
+  color:var(--ink);
+  border-radius:0;
+  border-right:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  gap:5px;
+  text-align:left;
+}
+
+.day:hover{background:#303744;filter:none;transform:none}
+
+.day.other {
+  background:#151920;
+  color:#687080;
+}
+
+.day.selected {
+  outline:2px solid var(--red);
+  outline-offset:-2px;
+  background:#382126;
+}
+
+.day-number {
+  width:27px;
+  height:27px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  font-size:12px;
+  font-weight:800;
+}
+
+.day.today .day-number {
+  background:var(--red);
+  color:white;
+}
+
+.day-events {
+  display:flex;
+  flex-direction:column;
+  gap:4px;
+  width:100%;
+  min-width:0;
+}
+
+.event {
+  display:block;
+  padding:4px 5px;
+  border-radius:5px;
+  font-size:10px;
+  font-weight:750;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+  width:100%;
+}
+
+.event.pending{background:#493619;color:#fbbf24}
+.event.confirmed{background:#123b29;color:#4ade80}
+.event.refused{background:#481f27;color:#fca5a5}
+
+.more {
+  font-size:10px;
+  color:#a1a1aa;
+}
+
+.legend {
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+  margin-top:15px;
+  color:#c0c5ce;
+  font-size:12px;
+}
+
+.dot {
+  display:inline-block;
+  width:9px;
+  height:9px;
+  border-radius:50%;
+  margin-right:5px;
+}
+
+.day-detail {
+  margin-top:18px;
+  padding:17px;
+  background:#151a22;
+  border:1px solid var(--line);
+  border-radius:12px;
+}
+
+.day-detail-head{margin-bottom:13px}
+
+.day-list {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+  gap:10px;
+}
+
+.day-entry {
+  background:#222833;
+  border:1px solid #3a414e;
+  border-radius:10px;
+  padding:13px;
+}
+
+.day-entry strong{display:block;margin-bottom:6px;color:white}
+.day-entry small{color:var(--muted)}
+
+.cards {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(270px,1fr));
+  gap:14px;
+}
+
+.item {
+  padding:17px;
+  overflow-wrap:anywhere;
+  transition:transform .2s,border-color .2s;
+}
+
+.item:hover {
+  transform:translateY(-2px);
+  border-color:#646d7c;
+}
+
+.item p {
+  margin:8px 0;
+  color:#cbd5e1;
+  font-size:14px;
+}
+
+.item p strong{color:white}
+
+.status {
+  padding:5px 9px;
+  border-radius:20px;
+  display:inline-block;
+  font-size:12px;
+  font-weight:800;
+}
+
+.status.pending{background:#493619;color:#fbbf24}
+.status.confirmed{background:#123b29;color:#4ade80}
+.status.refused{background:#481f27;color:#fca5a5}
+
+.actions {
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-top:14px;
+}
+
+.actions button {
+  font-size:12px;
+  padding:9px 11px;
+}
+
+.empty {
+  padding:22px;
+  text-align:center;
+  color:#a1a1aa;
+  background:#171c24;
+  border:1px dashed #555e6d;
+  border-radius:12px;
+}
+
+#message {
+  min-height:22px;
+  color:#d1d5db;
+  overflow-wrap:anywhere;
+}
+
+@media(max-width:900px) {
+  .stats{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .day{min-height:90px}
+}
+
+@media(max-width:600px) {
+  main{padding:16px 10px 35px}
+  .stats{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+  .stat{padding:13px}
+  .stat strong{font-size:24px}
+  .calendar-card{padding:10px}
+  .day{min-height:72px;padding:5px 3px;gap:3px}
+  .weekday{font-size:10px;padding:8px 2px}
+  .day-number{width:22px;height:22px;font-size:11px}
+  .event{font-size:9px;padding:3px}
+  .month-title{font-size:17px}
+  .calendar-controls button{padding:8px 10px;font-size:12px}
+  .panel{padding:15px}
+}
+
+.sidebar-link {
+  display:flex !important;
+  align-items:center;
+  justify-content:space-between;
+  gap:8px;
+}
+
+.sidebar-link.active {
+  background:#3a2027;
+  color:white;
+  border-left:3px solid #dc2626;
+}
+
+.sidebar-link span {
+  background:#dc2626;
+  color:white;
+  min-width:22px;
+  text-align:center;
+  padding:3px 7px;
+  border-radius:20px;
+  font-size:11px;
+}
+
+.logout-link {
+  margin-top:20px !important;
+  border-top:1px solid #343a46;
+  border-radius:0 0 9px 9px;
+  color:#fca5a5 !important;
+}
+
+html {
+  scroll-behavior:smooth;
+}
+
+.dashboard-content section,
+.dashboard-content .stats,
+.dashboard-content .welcome,
+.dashboard-content .section-heading {
+  scroll-margin-top:20px;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="header-inner">
+    <div>
+      <div class="brand">
+        SPEED <span class="garage">GARAGE</span>
+        <span class="pro">PRO</span>
+      </div>
+      <div class="header-sub">Espace de gestion · Administration</div>
+    </div>
+    <div style="font-size:12px;color:#cbd5e1">
+      Gestion des rendez-vous
+    </div>
+  </div>
+</header>
+
+<main>
+
+<section id="loginPanel" class="panel login-panel">
+  <h2>Connexion administrateur</h2>
+  <p style="color:#718096">
+    Connectez-vous pour gérer les rendez-vous.
+  </p>
+
+  <form id="loginForm">
+    <input id="adminEmail" type="email"
+      placeholder="Adresse e-mail" required
+      autocomplete="username">
+
+    <input id="adminPassword" type="password"
+      placeholder="Mot de passe" required
+      autocomplete="current-password">
+
+    <button type="submit">Se connecter</button>
+  </form>
+</section>
+
+<section id="dashboard" class="hidden">
+
+  <div class="dashboard-layout">
+
+    <!-- MENU LATERAL -->
+    <aside class="sidebar">
+
+      <div class="sidebar-title">MENU PRINCIPAL</div>
+
+      <a href="#overview" class="sidebar-link active">
+        🏠 Tableau de bord
+      </a>
+
+      <a href="#statistics" class="sidebar-link">
+        📊 Statistiques
+      </a>
+
+      <a href="#calendarSection" class="sidebar-link">
+        📅 Calendrier
+      </a>
+
+      <a href="#reservationsSection" class="sidebar-link">
+        🔧 Réservations
+        <span id="pendingMenuCount">0</span>
+      </a>
+
+      <a href="#" id="sidebarLogout" class="sidebar-link logout-link">
+        🚪 Déconnexion
+      </a>
+
+      <div class="sidebar-footer">
+        <span>SPEED GARAGE PRO</span>
+        <small>Administration</small>
+      </div>
+
+    </aside>
+
+    <!-- CONTENU PRINCIPAL -->
+    <div class="dashboard-content">
+
+      <div class="panel welcome" id="overview">
+        <div>
+          <h1>Tableau de bord</h1>
+          <p>Bienvenue dans votre espace SPEED GARAGE PRO.</p>
+        </div>
+
+        <button id="logout" class="secondary" type="button">
+          Déconnexion
+        </button>
+      </div>
+
+      <!-- STATISTIQUES -->
+      <div class="stats" id="statistics">
+
+        <div class="stat red">
+          <small>Total réservations</small>
+          <strong id="totalReservations">0</strong>
+        </div>
+
+        <div class="stat orange">
+          <small>En attente</small>
+          <strong id="pendingReservations">0</strong>
+        </div>
+
+        <div class="stat green-stat">
+          <small>Confirmées</small>
+          <strong id="confirmedReservations">0</strong>
+        </div>
+
+        <div class="stat dark-stat">
+          <small>Refusées</small>
+          <strong id="refusedReservations">0</strong>
+        </div>
+
+        <div class="stat blue">
+          <small>Créneaux occupés</small>
+          <strong id="occupiedSlots">0</strong>
+        </div>
+
+      </div>
+
+      <!-- CALENDRIER -->
+      <div class="section-heading">
+        <div>
+          <h2 style="margin:0">Calendrier des rendez-vous</h2>
+          <small style="color:#a1a1aa">
+            Cliquez sur une date pour afficher les rendez-vous.
+          </small>
+        </div>
+      </div>
+
+      <section class="calendar-card" id="calendarSection">
+
+        <div class="calendar-toolbar">
+          <div id="monthTitle" class="month-title"></div>
+
+          <div class="calendar-controls">
+            <button id="prevMonth" class="secondary" type="button">‹</button>
+            <button id="todayBtn" class="dark" type="button">Aujourd'hui</button>
+            <button id="nextMonth" class="secondary" type="button">›</button>
+          </div>
+        </div>
+
+        <div id="calendar" class="calendar-grid"></div>
+
+        <div class="legend">
+          <span><i class="dot" style="background:#d97706"></i>En attente</span>
+          <span><i class="dot" style="background:#16a34a"></i>Confirmé</span>
+          <span><i class="dot" style="background:#dc2626"></i>Refusé</span>
+        </div>
+
+        <div id="dayDetail" class="day-detail"></div>
+
+      </section>
+
+      <!-- RESERVATIONS -->
+      <div class="section-heading" id="reservationsSection">
+        <div>
+          <h2 style="margin:0">Demandes de rendez-vous</h2>
+          <small style="color:#a1a1aa">
+            Confirmez, refusez ou contactez vos clients.
+          </small>
+        </div>
+
+        <select id="filterStatus">
+          <option value="tous">Toutes les réservations</option>
+          <option value="en_attente">En attente</option>
+          <option value="confirme">Confirmées</option>
+          <option value="refuse">Refusées</option>
+        </select>
+      </div>
+
+      <div id="cards" class="cards"></div>
+
+    </div>
+  </div>
+
+</section>
+  </section>
+
+  <div class="section-heading">
+    <div>
+      <h2 style="margin:0">Demandes de rendez-vous</h2>
+      <small style="color:#718096">
+        Confirmez, refusez ou contactez vos clients.
+      </small>
+    </div>
+
+    <select id="filterStatus">
+      <option value="tous">Toutes les réservations</option>
+      <option value="en_attente">En attente</option>
+      <option value="confirme">Confirmées</option>
+      <option value="refuse">Refusées</option>
+    </select>
+  </div>
+
+  <div id="cards" class="cards"></div>
+
+</section>
+
+<p id="message" role="status" aria-live="polite"></p>
+
+</main>
+
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js"></script>
+<script src="firebase-config.js"></script>
+
+
+<script>
+
+const $ = id => document.getElementById(id);
+
+let unsubscribeReservations = null;
+let unsubscribeSlots = null;
+
+let reservationsData = [];
+let slotsData = [];
+
+let displayedMonth = new Date();
+const pad = n => String(n).padStart(2,'0');
+let selectedDate = dateKey(new Date());
+
+const msg = t => $('message').textContent = t;
+
+const statusText = {
+  en_attente:'En attente',
+  confirme:'Confirmé',
+  refuse:'Refusé'
+};
+
+
+
+function dateKey(d) {
+  return `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`;
+}
+
+function parseDateKey(s) {
+  const [y,m,d] = (s || '').split('-').map(Number);
+  return new Date(y,(m || 1)-1,d || 1);
+}
+
+function safeText(value) {
+  return value == null || value === '' ? '—' : String(value);
+}
+
+function statusClass(status) {
+  return status === 'en_attente' ? 'pending' :
+         status === 'confirme' ? 'confirmed' : 'refused';
+}
+
+function line(parent,label,value) {
+  const p = document.createElement('p');
+  const strong = document.createElement('strong');
+
+  strong.textContent = label + ': ';
+
+  p.append(
+    strong,
+    document.createTextNode(safeText(value))
+  );
+
+  parent.append(p);
+}
+
+function action(parent,label,css,fn) {
+  const b = document.createElement('button');
+
+  b.textContent = label;
+  b.className = css;
+  b.onclick = fn;
+
+  parent.append(b);
+}
+
+// STATISTIQUES
+
+function updateStats() {
+
+  $('totalReservations').textContent = reservationsData.length;
+
+  $('pendingReservations').textContent =
+    reservationsData.filter(x => x.data.status === 'en_attente').length;
+
+  $('confirmedReservations').textContent =
+    reservationsData.filter(x => x.data.status === 'confirme').length;
+
+  $('refusedReservations').textContent =
+    reservationsData.filter(x => x.data.status === 'refuse').length;
+
+  $('occupiedSlots').textContent = slotsData.length;
+const pendingCount = reservationsData.filter(
+  x => x.data.status === 'en_attente'
+).length;
+
+$('pendingMenuCount').textContent = pendingCount;
+
+$('pendingMenuCount').style.display =
+  pendingCount > 0 ? 'inline-block' : 'none';
+}
+
+// CALENDRIER
+
+function renderCalendar() {
+
+  const calendar = $('calendar');
+  calendar.replaceChildren();
+
+  const year = displayedMonth.getFullYear();
+  const month = displayedMonth.getMonth();
+
+  $('monthTitle').textContent =
+    new Intl.DateTimeFormat('fr-FR',{
+      month:'long',
+      year:'numeric'
+    }).format(displayedMonth);
+
+  ['Lun','Mar','Mer','Jeu','Ven','Sam','Dim'].forEach(day => {
+
+    const el = document.createElement('div');
+
+    el.className = 'weekday';
+    el.textContent = day;
+
+    calendar.append(el);
+
+  });
+
+  const first = new Date(year,month,1);
+  const offset = (first.getDay()+6)%7;
+  const start = new Date(year,month,1-offset);
+  const today = dateKey(new Date());
+
+  for(let i=0;i<42;i++) {
+
+    const date = new Date(start);
+
+    date.setDate(start.getDate()+i);
+
+    const key = dateKey(date);
+
+    const dayReservations = reservationsData.filter(
+      x => x.data.date === key
+    );
+
+    const cell = document.createElement('button');
+
+    cell.type = 'button';
+    cell.className = 'day';
+
+    if(date.getMonth() !== month) {
+      cell.classList.add('other');
+    }
+
+    if(key === today) {
+      cell.classList.add('today');
+    }
+
+    if(key === selectedDate) {
+      cell.classList.add('selected');
+    }
+
+    const number = document.createElement('span');
+
+    number.className = 'day-number';
+    number.textContent = date.getDate();
+
+    cell.append(number);
+
+    const events = document.createElement('span');
+
+    events.className = 'day-events';
+
+    dayReservations.slice(0,3).forEach(item => {
+
+      const event = document.createElement('span');
+
+      event.className = 'event ' + statusClass(item.data.status);
+
+      event.textContent =
+        (item.data.time || '') + ' ' +
+        (item.data.name || 'Rendez-vous');
+
+      events.append(event);
+
+    });
+
+    if(dayReservations.length > 3) {
+
+      const more = document.createElement('span');
+
+      more.className = 'more';
+      more.textContent = `+${dayReservations.length-3} autres`;
+
+      events.append(more);
+
+    }
+
+    cell.append(events);
+
+    cell.onclick = () => {
+
+      selectedDate = key;
+
+      renderCalendar();
+      renderDayDetail();
+
+    };
+
+    calendar.append(cell);
+
+  }
+
+  renderDayDetail();
+
+}
+
+function renderDayDetail() {
+
+  const wrap = $('dayDetail');
+
+  wrap.replaceChildren();
+
+  const heading = document.createElement('div');
+
+  heading.className = 'day-detail-head';
+
+  const title = document.createElement('h3');
+
+  title.textContent =
+    'Rendez-vous du ' +
+    new Intl.DateTimeFormat('fr-FR',{
+      weekday:'long',
+      day:'numeric',
+      month:'long',
+      year:'numeric'
+    }).format(parseDateKey(selectedDate));
+
+  heading.append(title);
+  wrap.append(heading);
+
+  const entries = reservationsData
+    .filter(x => x.data.date === selectedDate)
+    .sort((a,b) =>
+      (a.data.time || '').localeCompare(b.data.time || '')
+    );
+
+  if(!entries.length) {
+
+    const empty = document.createElement('div');
+
+    empty.className = 'empty';
+    empty.textContent =
+      'Aucun rendez-vous enregistré pour cette date.';
+
+    wrap.append(empty);
+
+    return;
+
+  }
+
+  const list = document.createElement('div');
+
+  list.className = 'day-list';
+
+  entries.forEach(({id,data}) => {
+
+    const card = document.createElement('div');
+
+    card.className = 'day-entry';
+
+    const name = document.createElement('strong');
+
+    name.textContent =
+      (data.time || 'Heure non précisée') +
+      ' · ' + safeText(data.name);
+
+    card.append(name);
+
+    const detail = document.createElement('small');
+
+    detail.textContent =
+      safeText(data.vehicle) + ' — ' +
+      safeText(data.service);
+
+    card.append(detail);
+
+    const p = document.createElement('p');
+
+    p.style.margin = '9px 0 0';
+
+    const badge = document.createElement('span');
+
+    badge.className =
+      'status ' + statusClass(data.status);
+
+    badge.textContent =
+      statusText[data.status] || 'Inconnu';
+
+    p.append(badge);
+    card.append(p);
+
+    action(card,'Voir la réservation','secondary',() => {
+
+      const target = document.getElementById(
+        'reservation-' + id
+      );
+
+      if(target) {
+
+        target.scrollIntoView({
+          behavior:'smooth',
+          block:'center'
+        });
+
+        target.style.outline = '2px solid #dc2626';
+
+        setTimeout(() => {
+          target.style.outline = '';
+        },1800);
+
+      }
+
+    });
+
+    list.append(card);
+
+  });
+
+  wrap.append(list);
+
+}
+
+// CONFIRMATION ET REFUS
+
+async function updateStatus(id,status) {
+
+  if(!['confirme','refuse'].includes(status)) {
+    msg('Statut invalide.');
+    return;
+  }
+
+  if(!confirm(
+    status === 'confirme'
+      ? 'Confirmer ce rendez-vous ?'
+      : 'Refuser ce rendez-vous et libérer le créneau ?'
+  )) return;
+
+  try {
+
+    const user = firebase.auth().currentUser;
+
+    if(!user || user.isAnonymous) {
+      throw new Error('Connexion administrateur nécessaire.');
+    }
+
+    const reservationRef = garageDb
+      .collection('reservations')
+      .doc(id);
+
+    const reservationSnap = await reservationRef.get();
+
+    if(!reservationSnap.exists) {
+      throw new Error('Réservation introuvable.');
+    }
+
+    const reservationData = reservationSnap.data();
+
+    if(reservationData.status !== 'en_attente') {
+      throw new Error('Cette réservation a déjà été traitée.');
+    }
+
+    // Nouveau système : slotId séparé de l'identifiant de réservation.
+    // Anciennes réservations : on conserve la compatibilité.
+    const slotId = reservationData.slotId ||
+      (
+        reservationData.date + '_' +
+        reservationData.time.replace(':', '-')
+      );
+
+    if(status === 'confirme') {
+
+      await reservationRef.update({
+        status:'confirme'
+      });
+
+      msg('Rendez-vous confirmé.');
+
+      return;
+    }
+
+    const slotRef = garageDb
+      .collection('slots')
+      .doc(slotId);
+
+    const slotSnap = await slotRef.get();
+
+    if(!slotSnap.exists) {
+      throw new Error('Créneau introuvable : ' + slotId);
+    }
+
+    const batch = garageDb.batch();
+
+    batch.update(reservationRef,{
+      status:'refuse'
+    });
+
+    batch.delete(slotRef);
+
+    await batch.commit();
+
+    msg('Réservation refusée et créneau libéré.');
+
+  } catch(error) {
+
+    console.error('Erreur Firebase :',error);
+
+    msg('Erreur Firebase : ' + error.message);
+
+  }
+}
+
+// WHATSAPP
+
+function whatsapp(data) {
+
+  const number = (data.phone || '').replace(/\D/g,'');
+
+  if(number.length < 8) {
+    msg('Numéro WhatsApp invalide.');
+    return;
+  }
+
+  const result =
+    data.status === 'confirme' ? 'confirmé' :
+    data.status === 'refuse' ? 'refusé' :
+    'en cours de traitement';
+
+  const text =
+    `Bonjour ${data.name}, SPEED GARAGE PRO : votre rendez-vous pour ${data.service} le ${data.date} à ${data.time} est ${result}. Merci.`;
+
+  window.open(
+    'https://wa.me/' + number +
+    '?text=' + encodeURIComponent(text),
+    '_blank',
+    'noopener,noreferrer'
+  );
+
+}
+
+// AFFICHAGE DES RESERVATIONS
+
+function render() {
+
+  const wrap = $('cards');
+
+  wrap.replaceChildren();
+
+  const filter = $('filterStatus').value;
+
+  const filtered = reservationsData.filter(item => {
+
+    return filter === 'tous' ||
+      item.data.status === filter;
+
+  });
+
+  if(!filtered.length) {
+
+    const empty = document.createElement('div');
+
+    empty.className = 'empty';
+    empty.textContent =
+      'Aucune réservation dans cette catégorie.';
+
+    wrap.append(empty);
+
+    return;
+
+  }
+
+  filtered.forEach(({id,data:d}) => {
+
+    const card = document.createElement('article');
+
+    card.className = 'item';
+    card.id = 'reservation-' + id;
+
+    line(card,'Client',d.name);
+    line(card,'Téléphone',d.phone);
+    line(card,'E-mail',d.email);
+    line(card,'Véhicule',d.vehicle);
+    line(card,'Prestation',d.service);
+
+    line(
+      card,
+      'Créneau demandé',
+      (d.date || '') + ' à ' + (d.time || '')
+    );
+
+    const p = document.createElement('p');
+
+    const badge = document.createElement('span');
+
+    badge.className =
+      'status ' + statusClass(d.status);
+
+    badge.textContent =
+      statusText[d.status] || d.status || 'Inconnu';
+
+    p.append('Statut : ',badge);
+
+    card.append(p);
+
+    const buttons = document.createElement('div');
+
+    buttons.className = 'actions';
+
+    if(d.status === 'en_attente') {
+
+      action(
+        buttons,
+        'Confirmer',
+        'green',
+        () => updateStatus(id,'confirme')
+      );
+
+      action(
+        buttons,
+        'Refuser',
+        'secondary',
+        () => updateStatus(id,'refuse')
+      );
+
+    }
+
+    action(
+      buttons,
+      'WhatsApp',
+      'green',
+      () => whatsapp(d)
+    );
+
+    card.append(buttons);
+
+    wrap.append(card);
+
+  });
+
+}
+
+// CONNEXION
+
+$('loginForm').onsubmit = async e => {
+
+  e.preventDefault();
+
+  if(!window.garageDb) {
+    msg('Configuration Firebase manquante.');
+    return;
+  }
+
+  try {
+
+    await firebase.auth().signInWithEmailAndPassword(
+      $('adminEmail').value,
+      $('adminPassword').value
+    );
+
+  } catch(error) {
+
+    msg('Connexion impossible : ' + error.message);
+
+  }
+
+};
+
+// FILTRE
+
+$('filterStatus').onchange = render;
+
+// DECONNEXION
+
+$('logout').onclick = () => firebase.auth().signOut();
+
+// NAVIGATION CALENDRIER
+
+$('prevMonth').onclick = () => {
+
+  displayedMonth = new Date(
+    displayedMonth.getFullYear(),
+    displayedMonth.getMonth()-1,
+    1
+  );
+
+  renderCalendar();
+
+};
+
+$('nextMonth').onclick = () => {
+
+  displayedMonth = new Date(
+    displayedMonth.getFullYear(),
+    displayedMonth.getMonth()+1,
+    1
+  );
+
+  renderCalendar();
+
+};
+
+$('todayBtn').onclick = () => {
+
+  displayedMonth = new Date();
+
+  selectedDate = dateKey(new Date());
+
+  renderCalendar();
+
+};
+
+// FIREBASE ET AUTHENTIFICATION
+
+if(window.garageDb) {
+
+  firebase.auth().onAuthStateChanged(async user => {
+
+    if(unsubscribeReservations) {
+      unsubscribeReservations();
+      unsubscribeReservations = null;
+    }
+
+    if(unsubscribeSlots) {
+      unsubscribeSlots();
+      unsubscribeSlots = null;
+    }
+
+    $('dashboard').classList.add('hidden');
+    $('loginPanel').classList.remove('hidden');
+
+    $('cards').replaceChildren();
+
+    reservationsData = [];
+    slotsData = [];
+
+    updateStats();
+    renderCalendar();
+
+    if(!user) return;
+
+    try {
+
+      const admin = await garageDb
+        .collection('admin')
+        .doc(user.uid)
+        .get();
+
+      if(
+        !admin.exists ||
+        admin.data().role !== 'admin' ||
+        admin.data().active !== true
+      ) {
+
+        msg('Compte non autorisé. Vérifiez role et active.');
+
+        await firebase.auth().signOut();
+
+        return;
+
+      }
+
+      $('loginPanel').classList.add('hidden');
+
+      $('dashboard').classList.remove('hidden');
+
+      msg('Administration connectée.');
+
+      unsubscribeReservations = garageDb
+        .collection('reservations')
+        .orderBy('createdAt','desc')
+        .onSnapshot(snapshot => {
+
+          reservationsData = [];
+
+          snapshot.forEach(doc => {
+
+            reservationsData.push({
+              id:doc.id,
+              data:doc.data()
+            });
+
+          });
+
+          updateStats();
+          render();
+          renderCalendar();
+
+        },error => {
+
+          msg(
+            'Lecture des réservations impossible : ' +
+            error.message
+          );
+
+        });
+
+      unsubscribeSlots = garageDb
+        .collection('slots')
+        .onSnapshot(snapshot => {
+
+          slotsData = [];
+
+          snapshot.forEach(doc => {
+
+            slotsData.push({
+              id:doc.id,
+              data:doc.data()
+            });
+
+          });
+
+          updateStats();
+
+        },error => {
+
+          $('occupiedSlots').textContent = 'Erreur';
+
+          console.error('Lecture slots :',error);
+
+        });
+
+    } catch(error) {
+
+      msg('Accès refusé : ' + error.message);
+
+    }
+
+  });
+
+} else {
+
+  msg('Configuration Firebase manquante.');
+
+}
+
+// NAVIGATION DU MENU LATERAL
+
+document.querySelectorAll('.sidebar-link[href^="#"]').forEach(link => {
+
+  link.addEventListener('click', function(event) {
+
+    event.preventDefault();
+
+    const id = this.getAttribute('href').substring(1);
+    const target = document.getElementById(id);
+
+    if (!target) {
+      console.error('Rubrique introuvable :', id);
+      return;
+    }
+
+    document.querySelectorAll('.sidebar-link').forEach(item => {
+      item.classList.remove('active');
+    });
+
+    this.classList.add('active');
+
+    target.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start'
+    });
+
+  });
+
+});
+
+// DECONNEXION DU MENU
+
+const sidebarLogout = $('sidebarLogout');
+
+if (sidebarLogout) {
+  sidebarLogout.addEventListener('click', function(event) {
+
+    event.preventDefault();
+
+    if (confirm('Voulez-vous vraiment vous déconnecter ?')) {
+      firebase.auth().signOut();
+    }
+
+  });
+}
+
+</script>
+</body>
+</html>
+
