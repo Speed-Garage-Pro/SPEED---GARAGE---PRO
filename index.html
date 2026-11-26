@@ -1950,7 +1950,7 @@ nav a:hover::after {
     }
 }
 
-```css
+
 /* SECTION FIDÉLITÉ PREMIUM */
 .loyalty-premium {
   position: relative;
@@ -2047,8 +2047,11 @@ nav a:hover::after {
     padding: 22px 15px;
   }
 }
-```
-
+@media (prefers-reduced-motion: reduce) {
+  .slider-track {
+    animation: none !important;
+  }
+}
   </style>
 </head>
 <body>
@@ -2190,7 +2193,7 @@ nav a:hover::after {
   <img
     class="service-card-image"
     src="service-revision.jpg"
-    alt="Contrôle et remplacement des pneus"
+    alt="Révision et vidange du moteur automobile"
     loading="lazy"
   >
   <span class="service-icon"><i class="fas fa-car"></i></span>
@@ -2203,7 +2206,7 @@ nav a:hover::after {
   <img
     class="service-card-image"
     src="controle-technique-diagnostic.jpg"
-    alt="Contrôle et remplacement des pneus"
+    alt="Diagnostic et contrôle technique automobile"
     loading="lazy"
   >
   <span class="service-icon"><i class="fas fa-car"></i></span>
@@ -2216,7 +2219,7 @@ nav a:hover::after {
   <img
     class="service-card-image"
     src="service-courroie.jpg"
-    alt="Contrôle et remplacement des pneus"
+    alt="Inspection de la courroie de distribution"
     loading="lazy"
   >
   <span class="service-icon"><i class="fas fa-car"></i></span>
@@ -2229,7 +2232,7 @@ nav a:hover::after {
   <img
     class="service-card-image"
     src="service-frein.jpg"
-    alt="Contrôle et remplacement des pneus"
+    alt="Contrôle et remplacement du liquide de frein"
     loading="lazy"
   >
   <span class="service-icon"><i class="fas fa-car"></i></span>
@@ -2242,7 +2245,7 @@ nav a:hover::after {
   <img
     class="service-card-image"
     src="service-climatisation.jpg"
-    alt="Contrôle et remplacement des pneus"
+    alt="Entretien et recharge de climatisation automobile"
     loading="lazy"
   >
   <span class="service-icon"><i class="fas fa-car"></i></span>
@@ -2323,7 +2326,7 @@ nav a:hover::after {
   </div>
 </section>
 
-```html
+
 <!-- SECTION FIDÉLITÉ SPEED GARAGE PRO -->
 <section id="fidelite" class="section loyalty-premium">
 
@@ -2374,7 +2377,7 @@ nav a:hover::after {
 
 </section>
 <!-- FIN SECTION FIDÉLITÉ -->
-```
+
 
 
 <div id="serviceDetailModal" class="modal service-detail-modal" role="dialog" aria-modal="true" aria-labelledby="serviceDetailTitle">
@@ -2420,15 +2423,33 @@ nav a:hover::after {
 
   <div class="footer-container">
 
-    <!-- LOGO + DESCRIPTION -->
-    <div class="footer-col">
-      <h3>Speed Garage PRO</h3>
-      <p>Speed Garage Pro Guinée.</p>
+   
+<!-- LOGO + DESCRIPTION -->
+<div class="footer-col">
+  <h3>Speed Garage PRO</h3>
+  <p>Speed Garage Pro Guinée.</p>
 
-      <a href="https://wa.me/224613816381" target="_blank" class="whatsapp-btn">
-        💬 Contact WhatsApp
-      </a>
-    </div>
+  <!-- Bouton WhatsApp du footer -->
+  <a
+    href="https://wa.me/224613816381?text=Bonjour%20SPEED%20GARAGE%20PRO%2C%20je%20vous%20contacte%20afin%20d%27obtenir%20des%20informations%20sur%20vos%20services%20et%20prestations.%20Pourriez-vous%20m%27apporter%20davantage%20de%20renseignements%2C%20s%27il%20vous%20pla%C3%AEt%20%3F%20Merci."
+    target="_blank"
+    rel="noopener noreferrer"
+    class="whatsapp-btn">
+    💬 Contact WhatsApp
+  </a>
+</div>
+
+<!-- BOUTON WHATSAPP FLOTTANT -->
+<a
+  href="https://wa.me/224613816381?text=Bonjour%20SPEED%20GARAGE%20PRO%2C%20je%20vous%20contacte%20afin%20d%27obtenir%20des%20informations%20sur%20vos%20services%20et%20prestations.%20Pourriez-vous%20m%27apporter%20davantage%20de%20renseignements%2C%20s%27il%20vous%20pla%C3%AEt%20%3F%20Merci."
+  target="_blank"
+  rel="noopener noreferrer"
+  class="whatsapp-float"
+  aria-label="Contacter SPEED GARAGE PRO sur WhatsApp">
+  <i class="fab fa-whatsapp"></i>
+  WhatsApp
+</a>
+
 
     <!-- SERVICES -->
     <div class="footer-col">
@@ -2481,7 +2502,7 @@ nav a:hover::after {
     <h3>Demande de devis</h3>
 
     <input type="text" id="d_nom" placeholder="Nom">
-    <input type="email" id="d_email" placeholder="Email">
+    <input type="email" id="d_email" placeholder="Email" autocomplete="email" pattern="[^\s@]+@[^\s@]+\.[^\s@]{2,}" title="Saisissez une adresse au format client@gmail.com">
     <input type="tel" id="d_tel" placeholder="Téléphone">
 
     <input type="text" id="d_marque" placeholder="Marque véhicule">
@@ -2503,7 +2524,7 @@ nav a:hover::after {
     <p>Choisissez votre créneau souhaité. Le garage vous confirmera sa disponibilité sur WhatsApp.</p>
 
     <input type="text" id="name" placeholder="Nom complet" autocomplete="name" required>
-    <input type="email" id="email" placeholder="Email" autocomplete="email" required>
+    <input type="email" id="email" placeholder="Email" autocomplete="email" required pattern="[^\s@]+@[^\s@]+\.[^\s@]{2,}" title="Saisissez une adresse au format client@gmail.com">
     <input type="tel" id="phone" placeholder="Téléphone WhatsApp (+224...)" autocomplete="tel" required>
     <input type="text" id="vehicle" placeholder="Véhicule (ex. Toyota Corolla)" maxlength="100" required>
     <input type="date" id="date" required>
@@ -2555,10 +2576,15 @@ function closeDevis() { document.getElementById('devisModal').style.display = 'n
 function openReservation() { document.getElementById('reservationModal').style.display = 'flex'; refreshSlots(); }
 function closeReservation() { document.getElementById('reservationModal').style.display = 'none'; }
 
+// Vérifie uniquement la syntaxe de l'adresse e-mail (sans envoyer de message).
+function isValidEmail(email) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(String(email).trim());
+}
+
 /* ENVOI DU DEVIS */
 function sendDevis() {
   const nom = d_nom.value;
-  const email = d_email.value;
+  const email = d_email.value.trim();
   const tel = d_tel.value;
   const marque = d_marque.value;
   const modele = d_modele.value;
@@ -2568,6 +2594,12 @@ function sendDevis() {
 
   if(!nom || !email || !probleme){
     alert('Veuillez remplir les champs obligatoires');
+    return;
+  }
+
+  if (!isValidEmail(email)) {
+    alert('Veuillez saisir une adresse e-mail valide (ex. client@gmail.com).');
+    d_email.focus();
     return;
   }
 
@@ -2616,6 +2648,12 @@ async function sendReservation() {
 
   if (Object.values(data).some(v => !v)) {
     feedback.textContent = 'Remplissez tous les champs.';
+    return;
+  }
+
+  if (!isValidEmail(data.email)) {
+    feedback.textContent = 'Veuillez saisir une adresse e-mail valide (ex. client@gmail.com).';
+    el('email').focus();
     return;
   }
 
